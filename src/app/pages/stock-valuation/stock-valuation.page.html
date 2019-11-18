@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Stock Valuation</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ngx-datatable
+  [rows]="product"
+  [ngClass]="tableStyle"
+  [rowHeight]="auto"
+  [headerHeight]="60"
+  [columnMode]="'force'"
+  [scrollbarH]="true"
+>
+<ngx-datatable-column name="productName"></ngx-datatable-column>
+<ngx-datatable-column name="quantity"></ngx-datatable-column>
+<ngx-datatable-column name="cost"></ngx-datatable-column>
+<ngx-datatable-column name="price"></ngx-datatable-column>
+
+<!-- <ngx-datatable-column name="Actions" sortable="false">
+  <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+  <ion-button size="small" fill="outline">Details</ion-button>"
+  </ng-template>
+</ngx-datatable-column> -->
+
+</ngx-datatable>
+
+    <div *ngFor="let a of product">{{a.productName}}</div>
+
+
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+   <ion-fab-button (click)="addStocks()">
+     <ion-icon name="add"></ion-icon>
+   </ion-fab-button>
+ </ion-fab>
+</ion-content>

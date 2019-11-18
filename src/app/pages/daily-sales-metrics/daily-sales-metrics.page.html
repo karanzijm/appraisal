@@ -1,0 +1,280 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Daily Sales Metrics</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div color="primary"><h1>Total</h1></div>
+
+<p>In which of the days of the week do you have Good Sales(G)/ Normal Sales(N)/ Bad Sales(B)</p>
+<ion-card>
+<ion-grid>
+    <ion-row>
+        <ion-col class="align-self-start">
+          Working Days
+        </ion-col>
+        <ion-col class="align-self-center">
+            Daily Sales Rating
+          </ion-col>
+          <ion-col class="align-self-end">
+              Total Daily Sales
+            </ion-col>
+    </ion-row>
+
+    <ion-row>
+        <ion-col class="align-self-start">
+          Monday
+        </ion-col>
+        <ion-col class="align-self-center">
+
+              <ion-radio-group name="mondayRate" [(ngModel)]="mondayRate">
+
+                  <ion-label>G</ion-label>
+                  <ion-radio slot="start" value="G" checked></ion-radio>
+
+                  <ion-label>N</ion-label>
+                  <ion-radio slot="start" value="N"></ion-radio>
+
+                  <ion-label>B</ion-label>
+                  <ion-radio slot="start" value="B"></ion-radio>
+
+              </ion-radio-group>
+
+          </ion-col>
+
+          <ion-col class="align-self-end">
+             <ion-item>
+               <ion-input name="mondaySales" [(ngModel)]="mondaySales" type="text"></ion-input>
+             </ion-item>
+            </ion-col>
+    </ion-row>
+
+    <ion-row>
+        <ion-col class="align-self-start">
+          Tuesday
+        </ion-col>
+        <ion-col class="align-self-center">
+
+              <ion-radio-group name="tuesdayRate" [(ngModel)]="tuesdayRate">
+
+                  <ion-label>G</ion-label>
+                  <ion-radio slot="start" value="G" checked></ion-radio>
+
+                  <ion-label>N</ion-label>
+                  <ion-radio slot="start" value="N"></ion-radio>
+
+                  <ion-label>B</ion-label>
+                  <ion-radio slot="start" value="B"></ion-radio>
+
+              </ion-radio-group>
+
+          </ion-col>
+
+          <ion-col class="align-self-end">
+             <ion-item>
+               <ion-input name="tuesdaySales" [(ngModel)]="tuesdaySales" type="text"></ion-input>
+             </ion-item>
+            </ion-col>
+    </ion-row>
+
+    <ion-row>
+        <ion-col class="align-self-start">
+          Wednesday
+        </ion-col>
+        <ion-col class="align-self-center">
+
+              <ion-radio-group name="wednesdayRate" [(ngModel)]="wednesdayRate">
+
+                  <ion-label>G</ion-label>
+                  <ion-radio slot="start" value="G" checked></ion-radio>
+
+                  <ion-label>N</ion-label>
+                  <ion-radio slot="start" value="N"></ion-radio>
+
+                  <ion-label>B</ion-label>
+                  <ion-radio slot="start" value="B"></ion-radio>
+
+              </ion-radio-group>
+
+          </ion-col>
+
+          <ion-col class="align-self-end">
+             <ion-item>
+               <ion-input name="wednesdaySales" [(ngModel)]="wednesdaySales" type="text"></ion-input>
+             </ion-item>
+            </ion-col>
+    </ion-row>
+
+    <ion-row>
+        <ion-col class="align-self-start">
+          Thursday
+        </ion-col>
+        <ion-col class="align-self-center">
+
+              <ion-radio-group name="thursdayRate" [(ngModel)]="thursdayRate">
+
+                  <ion-label>G</ion-label>
+                  <ion-radio slot="start" value="G" checked></ion-radio>
+
+                  <ion-label>N</ion-label>
+                  <ion-radio slot="start" value="N"></ion-radio>
+
+                  <ion-label>B</ion-label>
+                  <ion-radio slot="start" value="B"></ion-radio>
+
+              </ion-radio-group>
+
+          </ion-col>
+
+          <ion-col class="align-self-end">
+             <ion-item>
+               <ion-input name="thursdaySales" [(ngModel)]="thursdaySales" type="text"></ion-input>
+             </ion-item>
+            </ion-col>
+    </ion-row>
+
+    <ion-row>
+        <ion-col class="align-self-start">
+          Friday
+        </ion-col>
+        <ion-col class="align-self-center">
+
+              <ion-radio-group name="fridayRate" [(ngModel)]="fridayRate">
+
+                  <ion-label>G</ion-label>
+                  <ion-radio slot="start" value="G" checked></ion-radio>
+
+                  <ion-label>N</ion-label>
+                  <ion-radio slot="start" value="N"></ion-radio>
+
+                  <ion-label>B</ion-label>
+                  <ion-radio slot="start" value="B"></ion-radio>
+
+              </ion-radio-group>
+
+          </ion-col>
+
+          <ion-col class="align-self-end">
+             <ion-item>
+               <ion-input name="fridaySales" [(ngModel)]="fridaySales" type="text"></ion-input>
+             </ion-item>
+            </ion-col>
+    </ion-row>
+
+    <ion-row>
+        <ion-col class="align-self-start">
+          Saturday
+        </ion-col>
+        <ion-col class="align-self-center">
+
+              <ion-radio-group name="saturdayRate" [(ngModel)]="saturdayRate">
+
+                  <ion-label>G</ion-label>
+                  <ion-radio slot="start" value="G" checked></ion-radio>
+
+                  <ion-label>N</ion-label>
+                  <ion-radio slot="start" value="N"></ion-radio>
+
+                  <ion-label>B</ion-label>
+                  <ion-radio slot="start" value="B"></ion-radio>
+
+              </ion-radio-group>
+
+          </ion-col>
+
+          <ion-col class="align-self-end">
+             <ion-item>
+               <ion-input name="saturdaySales" [(ngModel)]="saturdaySales" type="text"></ion-input>
+             </ion-item>
+            </ion-col>
+    </ion-row>
+
+    <ion-row>
+        <ion-col class="align-self-start">
+          Sunday
+        </ion-col>
+        <ion-col class="align-self-center">
+
+              <ion-radio-group name="sundayRate" [(ngModel)]="sundayRate">
+
+                  <ion-label>G</ion-label>
+                  <ion-radio slot="start" value="G" checked></ion-radio>
+
+                  <ion-label>N</ion-label>
+                  <ion-radio slot="start" value="N"></ion-radio>
+
+                  <ion-label>B</ion-label>
+                  <ion-radio slot="start" value="B"></ion-radio>
+
+              </ion-radio-group>
+
+          </ion-col>
+
+          <ion-col class="align-self-end">
+             <ion-item>
+               <ion-input name="sundaySales" [(ngModel)]="sundaySales" type="text"></ion-input>
+             </ion-item>
+            </ion-col>
+    </ion-row>
+
+
+</ion-grid>
+<p>Sales in the Past Few Days; How much have you sold in the past three (3) days?</p>
+<ion-grid>
+
+  <ion-row>
+    <ion-col class="align-self-start">
+      Day of the Week
+    </ion-col>
+
+    <ion-col class="align-self-end">
+        Amount Sold Per Day
+      </ion-col>
+  </ion-row>
+
+  <ion-row>
+      <ion-col class="align-self-start">
+       <ion-select name="day1" [(ngModel)]="day1">
+         <ion-select-option *ngFor="let day of days">{{day}}</ion-select-option>
+       </ion-select>
+      </ion-col>
+
+      <ion-col class="align-self-end">
+          <ion-item>
+            <ion-input placeholder="90000" type="number"></ion-input>
+          </ion-item>
+        </ion-col>
+    </ion-row>
+
+    <ion-row>
+        <ion-col class="align-self-start">
+         <ion-select name="day2" [(ngModel)]="day2">
+           <ion-select-option *ngFor="let day of days">{{day}}</ion-select-option>
+         </ion-select>
+        </ion-col>
+
+        <ion-col class="align-self-end">
+            <ion-item>
+              <ion-input placeholder="90000" type="number"></ion-input>
+            </ion-item>
+          </ion-col>
+      </ion-row>
+
+      <ion-row>
+          <ion-col name="day3" class="align-self-start">
+           <ion-select [(ngModel)]="day3">
+             <ion-select-option *ngFor="let day of days">{{day}}</ion-select-option>
+           </ion-select>
+          </ion-col>
+
+          <ion-col class="align-self-end">
+              <ion-item>
+                <ion-input placeholder="90000" type="number"></ion-input>
+              </ion-item>
+            </ion-col>
+        </ion-row>
+</ion-grid>
+</ion-card>
+
+</ion-content>
