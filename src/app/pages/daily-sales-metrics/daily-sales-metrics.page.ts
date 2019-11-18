@@ -8,10 +8,30 @@ import { Component, OnInit } from '@angular/core';
 export class DailySalesMetricsPage implements OnInit {
 
   days=["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
-  // var day1,day2,day3
+ 
   day1="Monday"
   day2="Monday"
   day3="Monday"
+  total:number;
+  mondayRate:number
+  mondaySales:number
+  tuesdayRate:number
+  tuesdaySales:number
+  wednesdayRate:number
+  wednesdaySales:number
+  thursdayRate:number
+  thursdaySales:number
+  fridayRate:number
+  fridaySales:number
+  saturdayRate:number
+  saturdaySales:number
+  sundayRate:number
+  sundaySales:number
+
+
+
+
+  
   constructor() { }
 
   ngOnInit() {
