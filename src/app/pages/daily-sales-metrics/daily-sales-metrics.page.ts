@@ -14,7 +14,7 @@ export class DailySalesMetricsPage implements OnInit {
   day3="Monday"
   total:number;
   mondayRate:number
-  mondaySales:number
+  mondaySales:number;
   tuesdayRate:number
   tuesdaySales:number
   wednesdayRate:number
@@ -28,6 +28,8 @@ export class DailySalesMetricsPage implements OnInit {
   sundayRate:number
   sundaySales:number
 
+  
+
 
 
 
@@ -35,6 +37,12 @@ export class DailySalesMetricsPage implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  sales(){
+    // this.total =parseFloat(this.mondaySales)  + parseFloat(this.tuesdaySales) + parseFloat(this.wednesdaySales) + parseFloat(this.thursdaySales) +
+    // parseFloat(this.fridaySales)
+    this.total = this.mondaySales + this.tuesdaySales
   }
 
 }
