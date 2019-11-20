@@ -54,7 +54,6 @@ product:any[]=[];
 
     });
 
-   console.log("asfsda")
     return await modal.present();
 
   }

@@ -9,6 +9,7 @@
 
 <p>In which of the days of the week do you have Good Sales(G)/ Normal Sales(N)/ Bad Sales(B)</p>
 <ion-card>
+  <form [formGroup]="salesForm">
 <ion-grid>
     <ion-row>
         <ion-col class="align-self-start">
@@ -28,7 +29,7 @@
         </ion-col>
         <ion-col class="align-self-center">
 
-              <ion-radio-group name="mondayRate" [(ngModel)]="mondayRate">
+              <ion-radio-group formControlName="mondayRate">
 
                   <ion-label>G</ion-label>
                   <ion-radio slot="start" value="G" checked></ion-radio>
@@ -45,7 +46,7 @@
 
           <ion-col class="align-self-end">
              <ion-item>
-               <ion-input placeholder="600000" name="mondaySales" [(ngModel)]="mondaySales" type="number" (keyup)="sales()"></ion-input>
+               <ion-input placeholder="600000" formControlName="mondaySales" type="number" (keyup)="sales()"></ion-input>
              </ion-item>
             </ion-col>
     </ion-row>
@@ -56,7 +57,7 @@
         </ion-col>
         <ion-col class="align-self-center">
 
-              <ion-radio-group name="tuesdayRate" [(ngModel)]="tuesdayRate">
+              <ion-radio-group formControlName="tuesdayRate">
 
                   <ion-label>G</ion-label>
                   <ion-radio slot="start" value="G" checked></ion-radio>
@@ -73,7 +74,7 @@
 
           <ion-col class="align-self-end">
              <ion-item>
-               <ion-input placeholder="600000" name="tuesdaySales" [(ngModel)]="tuesdaySales" type="number" (keyup)="sales()"></ion-input>
+               <ion-input placeholder="600000" formControlName="tuesdaySales" type="number" (keyup)="sales()"></ion-input>
              </ion-item>
             </ion-col>
     </ion-row>
@@ -84,7 +85,7 @@
         </ion-col>
         <ion-col class="align-self-center">
 
-              <ion-radio-group name="wednesdayRate" [(ngModel)]="wednesdayRate">
+              <ion-radio-group formControlName="wednesdayRate">
 
                   <ion-label>G</ion-label>
                   <ion-radio slot="start" value="G" checked></ion-radio>
@@ -101,7 +102,7 @@
 
           <ion-col class="align-self-end">
              <ion-item>
-               <ion-input placeholder="600000" name="wednesdaySales" [(ngModel)]="wednesdaySales" type="number" (keyup)="sales()"></ion-input>
+               <ion-input placeholder="600000" formControlName="wednesdaySales" type="number" (keyup)="sales()"></ion-input>
              </ion-item>
             </ion-col>
     </ion-row>
@@ -112,7 +113,7 @@
         </ion-col>
         <ion-col class="align-self-center">
 
-              <ion-radio-group name="thursdayRate" [(ngModel)]="thursdayRate">
+              <ion-radio-group formControlName="thursdayRate">
 
                   <ion-label>G</ion-label>
                   <ion-radio slot="start" value="G" checked></ion-radio>
@@ -129,7 +130,7 @@
 
           <ion-col class="align-self-end">
              <ion-item>
-               <ion-input placeholder="600000" name="thursdaySales" [(ngModel)]="thursdaySales" type="number" (keyup)="sales()"></ion-input>
+               <ion-input placeholder="600000" formControlName="thursdaySales" type="number" (keyup)="sales()"></ion-input>
              </ion-item>
             </ion-col>
     </ion-row>
@@ -140,7 +141,7 @@
         </ion-col>
         <ion-col class="align-self-center">
 
-              <ion-radio-group name="fridayRate" [(ngModel)]="fridayRate">
+              <ion-radio-group formControlName="fridayRate">
 
                   <ion-label>G</ion-label>
                   <ion-radio slot="start" value="G" checked></ion-radio>
@@ -157,7 +158,7 @@
 
           <ion-col class="align-self-end">
              <ion-item>
-               <ion-input placeholder="600000" name="fridaySales" [(ngModel)]="fridaySales" type="number" (keyup)="sales()"></ion-input>
+               <ion-input placeholder="600000" formControlName="fridaySales" type="number" (keyup)="sales()"></ion-input>
              </ion-item>
             </ion-col>
     </ion-row>
@@ -168,7 +169,7 @@
         </ion-col>
         <ion-col class="align-self-center">
 
-              <ion-radio-group name="saturdayRate" [(ngModel)]="saturdayRate">
+              <ion-radio-group formControlName="saturdayRate">
 
                   <ion-label>G</ion-label>
                   <ion-radio slot="start" value="G" checked></ion-radio>
@@ -185,7 +186,7 @@
 
           <ion-col class="align-self-end">
              <ion-item>
-               <ion-input placeholder="600000" name="saturdaySales" [(ngModel)]="saturdaySales" type="number" (keyup)="sales()"></ion-input>
+               <ion-input placeholder="600000" formControlName="saturdaySales" type="number" (keyup)="sales()"></ion-input>
              </ion-item>
             </ion-col>
     </ion-row>
@@ -196,7 +197,7 @@
         </ion-col>
         <ion-col class="align-self-center">
 
-              <ion-radio-group name="sundayRate" [(ngModel)]="sundayRate">
+              <ion-radio-group formControlName="sundayRate">
 
                   <ion-label>G</ion-label>
                   <ion-radio slot="start" value="G" checked></ion-radio>
@@ -213,7 +214,7 @@
 
           <ion-col class="align-self-end">
              <ion-item>
-               <ion-input placeholder="600000" name="sundaySales" [(ngModel)]="sundaySales" type="number" (keyup)="sales()"></ion-input>
+               <ion-input placeholder="600000" formControlName="sundaySales" type="number" (keyup)="sales()"></ion-input>
              </ion-item>
             </ion-col>
     </ion-row>
@@ -225,17 +226,17 @@
 
   <ion-row>
     <ion-col class="align-self-start">
-      Day of the Week
+      <strong color="primary">Day of the Week</strong>
     </ion-col>
 
-    <ion-col class="align-self-end">
-        Amount Sold Per Day
+    <ion-col color="tertiary" class="align-self-end">
+        <strong>Amount Sold Per Day</strong>
       </ion-col>
   </ion-row>
 
   <ion-row>
       <ion-col class="align-self-start">
-       <ion-select name="day1" [(ngModel)]="day1">
+       <ion-select formControlName="day1">
          <ion-select-option *ngFor="let day of days">{{day}}</ion-select-option>
        </ion-select>
       </ion-col>
@@ -249,7 +250,7 @@
 
     <ion-row>
         <ion-col class="align-self-start">
-         <ion-select name="day2" [(ngModel)]="day2">
+         <ion-select formControlName="day2">
            <ion-select-option *ngFor="let day of days">{{day}}</ion-select-option>
          </ion-select>
         </ion-col>
@@ -262,8 +263,8 @@
       </ion-row>
 
       <ion-row>
-          <ion-col name="day3" class="align-self-start">
-           <ion-select [(ngModel)]="day3">
+          <ion-col class="align-self-start">
+           <ion-select formControlName="day3">
              <ion-select-option *ngFor="let day of days">{{day}}</ion-select-option>
            </ion-select>
           </ion-col>
@@ -275,6 +276,8 @@
             </ion-col>
         </ion-row>
 </ion-grid>
+<ion-button type="submit" expand="full">Submit</ion-button>
+</form>
 </ion-card>
 
 </ion-content>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-daily-sales-metrics',
@@ -8,41 +9,93 @@ import { Component, OnInit } from '@angular/core';
 export class DailySalesMetricsPage implements OnInit {
 
   days=["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+ pattern='^\\d{9}$'
  
-  day1="Monday"
-  day2="Monday"
-  day3="Monday"
-  total:number;
-  mondayRate:number
-  mondaySales:number;
-  tuesdayRate:number
-  tuesdaySales:number
-  wednesdayRate:number
-  wednesdaySales:number
-  thursdayRate:number
-  thursdaySales:number
-  fridayRate:number
-  fridaySales:number
-  saturdayRate:number
-  saturdaySales:number
-  sundayRate:number
-  sundaySales:number
-
+ 
+  salesForm:FormGroup
+  total:any
+  mondayRate:any
+  mondaySales:any
+  tuesdayRate:any
+  tuesdaySales:any
+  wednesdayRate:any
+  wednesdaySales:any
+  thursdayRate:any
+  thursdaySales:any
+  fridayRate:any
+  fridaySales:any
+  saturdayRate:any
+  saturdaySales:any
+  sundayRate:any
+  sundaySales:any
   
 
 
 
 
   
-  constructor() { }
+  constructor(private fb:FormBuilder) { }
 
   ngOnInit() {
+    this.salesForm = this.fb.group({
+      total:new FormControl(),
+      mondayRate:new FormControl(),
+      mondaySales:new FormControl(),
+      tuesdayRate:new FormControl(),
+      tuesdaySales:new FormControl(),
+      wednesdayRate:new FormControl(),
+      wednesdaySales:new FormControl(),
+      thursdayRate:new FormControl(),
+      thursdaySales:new FormControl(),
+      fridayRate:new FormControl(),
+      fridaySales:new FormControl(),
+      saturdayRate:new FormControl(),
+      saturdaySales:new FormControl(),
+      sundayRate:new FormControl(),
+      sundaySales:new FormControl(),  
+      day1:new FormControl(), 
+      day2:new FormControl(), 
+      day3:new FormControl(), 
+    })
+
+    this.salesForm.controls['day1'].setValue("Monday")
+    this.salesForm.controls['day2'].setValue("Monday")
+    this.salesForm.controls['day3'].setValue("Monday")
+
   }
 
   sales(){
-    // this.total =parseFloat(this.mondaySales)  + parseFloat(this.tuesdaySales) + parseFloat(this.wednesdaySales) + parseFloat(this.thursdaySales) +
-    // parseFloat(this.fridaySales)
-    this.total = this.mondaySales + this.tuesdaySales
+
+    this.mondaySales = this.salesForm.controls['mondaySales'].value
+    if(this.mondaySales===null)
+    this.mondaySales =0
+
+    this.tuesdaySales = this.salesForm.controls['tuesdaySales'].value
+   if(this.tuesdaySales===null) 
+       this.tuesdaySales = 0
+
+   this.wednesdaySales = this.salesForm.controls['wednesdaySales'].value
+   if(this.wednesdaySales===null) 
+   this.wednesdaySales = 0
+
+   this.thursdaySales = this.salesForm.controls['thursdaySales'].value
+   if(this.thursdaySales===null) 
+   this.thursdaySales = 0
+
+   this.fridaySales = this.salesForm.controls['fridaySales'].value
+   if(this.fridaySales===null) 
+   this.fridaySales = 0
+
+   this.saturdaySales = this.salesForm.controls['saturdaySales'].value
+   if(this.saturdaySales===null) 
+   this.saturdaySales = 0
+
+   this.sundaySales = this.salesForm.controls['sundaySales'].value
+   if(this.sundaySales===null) 
+   this.sundaySales = 0
+
+    this.total = this.mondaySales + this.tuesdaySales +this.wednesdaySales +this.thursdaySales
+    + this.fridaySales + this.saturdaySales + this.sundaySales
   }
 
 }

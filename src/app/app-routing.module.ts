@@ -16,6 +16,12 @@ const routes: Routes = [
     path: 'daily-sales-metrics',
     loadChildren: () => import('./pages/daily-sales-metrics/daily-sales-metrics.module').then( m => m.DailySalesMetricsPageModule)
   },
+  {
+    path: 'operating-expenses',
+    loadChildren: () => import('./pages/operating-expenses/operating-expenses.module').then( m => m.OperatingExpensesPageModule)
+  },
+
+
 
 ];
 

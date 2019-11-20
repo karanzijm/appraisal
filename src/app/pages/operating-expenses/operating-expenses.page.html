@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Operating Expenses</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    Total:{{total}}
+  </div>
+  <ion-card>
+      <form [formGroup]="operatingExpensesForm">
+          <p>How much do you spend on the following monthly?</p>
+
+           <ion-item>
+             <ion-input type="number" formControlName="rent" placeholder="Rent" (keyup)="totalExpense()"></ion-input>
+           </ion-item>
+
+           <ion-item>
+              <ion-input type="number" formControlName="transportToBusiness" placeholder="Monthly Transportation to Business" (keyup)="totalExpense()"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-input type="number" formControlName="transportForStock" placeholder="Transport/Travel costs when buying stock" (keyup)="totalExpense()"></ion-input>
+              </ion-item>
+
+              <ion-item>
+                  <ion-input type="number" formControlName="communication" placeholder="Monthly Transportation to Business" (keyup)="totalExpense()"></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-input type="number" formControlName="salaries" placeholder="Communication(Airtime, Internet, etc)" (keyup)="totalExpense()"></ion-input>
+                  </ion-item>
+
+                  <ion-item>
+                      <ion-input type="number" formControlName="utilityBill" placeholder="Utility Bills(Electricity, Water,etc)" (keyup)="totalExpense()"></ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-input type="number" formControlName="fees" placeholder="Taxes,Market fees,license fees" (keyup)="totalExpense()"></ion-input>
+                      </ion-item>
+
+                      <ion-item>
+                          <ion-input type="number" formControlName="loanInstallments" placeholder="Installmentfor other loans" (keyup)="totalExpense()"></ion-input>
+                        </ion-item>
+
+                        <div *ngIf="expenseList.length>0">
+                          <p>Other expenses</p>
+                          <ion-item *ngFor="let item of expenseList">
+                              <ion-label position="stacked">{{item.name}}</ion-label>
+                              <ion-input type="text" readonly>{{item.amount}}</ion-input>
+                          </ion-item>
+                        </div>
+                    
+                  <ion-button color="tertiary" (click)="getModal()">Add operating Expense</ion-button>
+                  <ion-button color="primary">Submit</ion-button>
+
+    
+        </form>
+  </ion-card>
+ 
+
+</ion-content>
