@@ -20,6 +20,10 @@ const routes: Routes = [
     path: 'operating-expenses',
     loadChildren: () => import('./pages/operating-expenses/operating-expenses.module').then( m => m.OperatingExpensesPageModule)
   },
+  {
+    path: 'business-financial',
+    loadChildren: () => import('./pages/business-financial/business-financial.module').then( m => m.BusinessFinancialPageModule)
+  },
 
 
 
