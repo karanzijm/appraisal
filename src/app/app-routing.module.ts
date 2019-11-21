@@ -24,6 +24,12 @@ const routes: Routes = [
     path: 'business-financial',
     loadChildren: () => import('./pages/business-financial/business-financial.module').then( m => m.BusinessFinancialPageModule)
   },
+  {
+    path: 'family-expenses',
+    loadChildren: () => import('./pages/family-expenses/family-expenses.module').then( m => m.FamilyExpensesPageModule)
+  },
+  
+
 
 
 

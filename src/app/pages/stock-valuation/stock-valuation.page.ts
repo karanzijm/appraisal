@@ -1,6 +1,7 @@
 import { Component, OnInit, ɵConsole, ChangeDetectorRef } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { AddStockPage } from '../add-stock/add-stock.page';
+import { ReportsService } from 'src/app/services/reports.service';
 
 
 
@@ -15,10 +16,10 @@ tableStyle = 'bootstrap';
 dataReturned:any;
 product:any[]=[];
   constructor(public modalController: ModalController,
-    private cdr: ChangeDetectorRef) { }
+    private report: ReportsService) { }
   
   ngOnInit() {
-    console.log(this.product)
+   
   }
 
   switchStyle(){
@@ -45,9 +46,14 @@ product:any[]=[];
 
     modal.onDidDismiss().then((dataReturned) => {
       if (dataReturned !== null) {
+        let stock = dataReturned.data.quantity * dataReturned.data.cost
+        let margin =((((dataReturned.data.price * dataReturned.data.quantity)-(dataReturned.data.cost * dataReturned.data.quantity))*100)/(dataReturned.data.price * dataReturned.data.quantity))
+        dataReturned.data.stock = stock
+        dataReturned.data.margin = margin
+        console.log(stock+" "+margin)
         this.product.push(dataReturned.data)
-        this.cdr.detectChanges();
-        this.ngOnInit()
+        this.report.stockValuationAmnt(this.product)
+        
      
       }
      

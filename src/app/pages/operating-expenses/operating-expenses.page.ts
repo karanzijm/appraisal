@@ -50,7 +50,7 @@ export class OperatingExpensesPage implements OnInit {
         this.utilityBill = this.operatingExpensesForm.controls['utilityBill'].value
         this.fees = this.operatingExpensesForm.controls['fees'].value
         this.loanInstallments = this.operatingExpensesForm.controls['loanInstallments'].value
-        console.log(this.returnedData)
+
         if(this.expenseList && this.expenseList.length>0){
           this.expenseList.forEach(obj=>{
             this.additionalOp +=obj.amount 

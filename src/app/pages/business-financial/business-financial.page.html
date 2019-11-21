@@ -1,59 +1,73 @@
-<ion-header>
-  <ion-toolbar>
+<ion-header [ngClass]="{color: primary}">
+    <ion-toolbar class="top-header">
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
     <ion-title>Business Financial</ion-title>
   </ion-toolbar>
 </ion-header>
-
+<div class="fixed-header">
+    <h2 color="primary">Title:{{total}}</h2>
+ </div>
 <ion-content>
+  
+  <ion-card>
   <form [formGroup]="businessForm">
   <ion-item>
     <ion-label position="stacked">How much is your net monthly earnings from other business?</ion-label>
-    <ion-input formControlName="netEarning" placeholder="2300" type="text"></ion-input>
+    <ion-input formControlName="netEarning" placeholder="2300" type="number" (keyup)="totalFinances()"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label position="stacked">How much does your business have in cash today? </ion-label>
-    <ion-input formControlName="cash" placeholder="8900" type="text"></ion-input>
+    <ion-input formControlName="cash" placeholder="8900" type="number" (keyup)="totalFinances()"></ion-input>
   </ion-item>
 
   <ion-item>
+      <ion-label position="stacked">How much does your business have in the bank? </ion-label>
+      <ion-input formControlName="bank" placeholder="8900" type="number" (keyup)="totalFinances()"></ion-input>
+    </ion-item>
+
+  <ion-item>
     <ion-label position="stacked">How much do you expect to collect from debtors this month? </ion-label>
-    <ion-input formControlName="debtors" placeholder="2300" type="text"></ion-input>
+    <ion-input formControlName="debtors" placeholder="2300" type="number" (keyup)="totalFinances()"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label position="stacked">What is the total value of your furniture </ion-label>
-    <ion-input formControlName="furniture" placeholder="2700" type="text"></ion-input>
+    <ion-input formControlName="furniture" placeholder="2700" type="number" (keyup)="totalFinances()"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label position="stacked">What is the total value of your Equipment and tools</ion-label>
-    <ion-input placeholder="7000" type="text"></ion-input>
+    <ion-input formControlName="equipment" placeholder="7000" type="number" (keyup)="totalFinances()"></ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-label formControlName="vehicles" position="stacked">What is the total value of your Vehicles</ion-label>
-    <ion-input formControlName="equipment" placeholder="7000" type="text"></ion-input>
+    <ion-label position="stacked">What is the total value of your Vehicles</ion-label>
+    <ion-input formControlName="vehicles" placeholder="7000" type="number" (keyup)="totalFinances()"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label position="stacked">What is the total value of your Business Premises</ion-label>
-    <ion-input formControlName="premises" placeholder="7000" type="text"></ion-input>
+    <ion-input formControlName="premises" placeholder="7000" type="number" (keyup)="totalFinances()"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label position="stacked">What is the total value of loans payable this month?</ion-label>
-    <ion-input formControlName="loans" placeholder="7000" type="text"></ion-input>
+    <ion-input formControlName="loans" placeholder="7000" type="number" (keyup)="totalFinances()"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label position="stacked">What is the total value of debts due in 3 months time?</ion-label>
-    <ion-input formControlName="debtsBelow3" placeholder="7000" type="text"></ion-input>
+    <ion-input formControlName="debtsBelow3" placeholder="7000" type="number" (keyup)="totalFinances()"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label position="stacked">What is the total value of debts due in over 3 months?</ion-label>
-    <ion-input formControlName="debtsOver3" placeholder="7000" type="text"></ion-input>
+    <ion-input formControlName="debtsOver3" placeholder="7000" type="number" (keyup)="totalFinances()"></ion-input>
   </ion-item>
-  <ion-button type="submit"></ion-button></form>
+  <ion-button expand="full" type="submit">Submit</ion-button>
+</form>
+</ion-card>
 </ion-content>

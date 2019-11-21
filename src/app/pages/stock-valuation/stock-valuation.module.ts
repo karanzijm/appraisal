@@ -11,6 +11,8 @@ import { StockValuationPageRoutingModule } from './stock-valuation-routing.modul
 
 import { StockValuationPage } from './stock-valuation.page';
 import { AddStockPageModule } from '../add-stock/add-stock.module';
+import { SuperTableModule } from 'ngx-super-table';
+
 
 
 @NgModule({
@@ -20,7 +22,8 @@ import { AddStockPageModule } from '../add-stock/add-stock.module';
     IonicModule,
     StockValuationPageRoutingModule,
     NgxDatatableModule,
-    AddStockPageModule
+    AddStockPageModule,
+    SuperTableModule
 
   ],
   declarations: [StockValuationPage],

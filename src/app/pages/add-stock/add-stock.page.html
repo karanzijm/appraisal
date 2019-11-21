@@ -14,17 +14,17 @@
 
   <ion-item>
       <ion-label position="stacked">Quantity</ion-label>
-      <ion-input name="quantity" [(ngModel)]="stock.quantity" type="text"></ion-input>
+      <ion-input name="quantity" [(ngModel)]="stock.quantity" type="number"></ion-input>
     </ion-item>
 
     <ion-item>
         <ion-label position="stacked">How much did you buy each at?</ion-label>
-        <ion-input name="cost" [(ngModel)]="stock.cost" type="text"></ion-input>
+        <ion-input name="cost" [(ngModel)]="stock.cost" type="number"></ion-input>
       </ion-item>
 
       <ion-item>
           <ion-label position="stacked">How much did you sell each at?</ion-label>
-          <ion-input name="price" [(ngModel)]="stock.price" type="text"></ion-input>
+          <ion-input name="price" [(ngModel)]="stock.price" type="number"></ion-input>
       </ion-item>
 
       <ion-buttons>

@@ -1,5 +1,8 @@
 {
   "name": "appraisal",
-  "integrations": {},
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+  },
   "type": "angular"
 }

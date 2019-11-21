@@ -1,32 +1,44 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Ionic Blank
+      Loan Details
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+<ion-card>
+  
+
 <p>Loan Details</p>
-
-<ion-item>
-  <ion-label position="stacked">What Loan Amount are you applying for</ion-label>
-  <ion-input type="text"></ion-input>
+<form [formGroup]="loanDetails" (ngSubmit)="submit()">
+  <ion-item>
+  <ion-label position="stacked">What Loan Amount are you applying for?</ion-label>
+  <ion-input placeholder="eg.100000" formControlName="loanAmount" type="text"></ion-input>
 </ion-item>
 <ion-item>
-  <ion-label position="stacked">For how long would you like to service this loan in months</ion-label>
-  <ion-input type="number"></ion-input>
-</ion-item>
-
-<ion-item>
-  <ion-label position="stacked">How much can you pay back monthly</ion-label>
-  <ion-input type="number"></ion-input>
+  <ion-label position="stacked">For how long would you like to service this loan in months?</ion-label>
+  <ion-input placeholder="5" formControlName="period" type="number"></ion-input>
 </ion-item>
 
 <ion-item>
-  <ion-label position="stacked">What is the total value of collateral/security you have pledged for the loan </ion-label>
-  <ion-input type="number"></ion-input>
+    <ion-label position="stacked">What interest rate is the bank charging per year?</ion-label>
+    <ion-input placeholder="Enter % value e.g 10" formControlName="interest" type="number"></ion-input>
+  </ion-item>
+
+<ion-item>
+  <ion-label position="stacked">How much can you pay back monthly?</ion-label>
+  <ion-input placeholder="30000" formControlName="installment" type="number"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label position="stacked">What is the total value of collateral/security you have pledged for the loan?</ion-label>
+  <ion-input placeholder="100000" formControlName="collateral" type="number"></ion-input>
 </ion-item>
 
 <ion-button color="primary" shape="round" type="submit" expand="full" fill="solid">Submit</ion-button>
+</form>
+
+</ion-card>
+<ion-button [routerLink]="['/stock-valuation']" routerLinkActive="router-link-active" >Stock</ion-button>
 </ion-content>

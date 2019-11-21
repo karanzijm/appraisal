@@ -15,7 +15,7 @@ export class AddStockPage implements OnInit {
   cost:number;
   price:number;
 
-  stock=new Stock("",0,0,0);
+  stock=new Stock(null,null,null,null);
 
   constructor(private modalCtrl: ModalController) { }
 

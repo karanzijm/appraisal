@@ -5,30 +5,35 @@
 </ion-header>
 
 <ion-content>
-<ngx-datatable
-  [rows]="product"
-  [ngClass]="tableStyle"
-  [rowHeight]="auto"
-  [headerHeight]="60"
-  [columnMode]="'force'"
-  [scrollbarH]="true"
->
-<ngx-datatable-column name="productName"></ngx-datatable-column>
-<ngx-datatable-column name="quantity"></ngx-datatable-column>
-<ngx-datatable-column name="cost"></ngx-datatable-column>
-<ngx-datatable-column name="price"></ngx-datatable-column>
 
-<!-- <ngx-datatable-column name="Actions" sortable="false">
-  <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-  <ion-button size="small" fill="outline">Details</ion-button>"
-  </ng-template>
-</ngx-datatable-column> -->
+  <table>
+    <thead>
 
-</ngx-datatable>
+      <tr>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Cost</th>
+        <th>Sales</th>
+        <th>Margin</th>
+        <th>Stock</th>
+        
+      </tr>
 
-    <div *ngFor="let a of product">{{a.productName}}</div>
+    </thead>
 
+    <tbody>
+      <tr *ngFor="let item of product">
 
+        <td>{{item.productName}}</td>
+        <td>{{item.quantity}}</td>
+        <td>{{item.cost}}</td>
+        <td>{{item.price}}</td>
+        <td>{{item.margin.toFixed(2)}}</td>
+        <td>{{item.stock}}</td>
+
+      </tr>
+    </tbody>
+  </table>
 
 <ion-fab vertical="bottom" horizontal="end" slot="fixed">
    <ion-fab-button (click)="addStocks()">

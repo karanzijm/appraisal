@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { FamilyEarningPageRoutingModule } from './family-earning-routing.module';
-
+import * as $ from 'jquery';
 import { FamilyEarningPage } from './family-earning.page';
 
 @NgModule({
