@@ -12,7 +12,7 @@
 <ion-content>
   
   <ion-card>
-  <form [formGroup]="businessForm">
+  <form [formGroup]="businessForm" (ngSubmit)="submit()">
   <ion-item>
     <ion-label position="stacked">How much is your net monthly earnings from other business?</ion-label>
     <ion-input formControlName="netEarning" placeholder="2300" type="number" (keyup)="totalFinances()"></ion-input>

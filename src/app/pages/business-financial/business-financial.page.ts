@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
+import { ReportsService } from 'src/app/services/reports.service';
 
 @Component({
   selector: 'app-business-financial',
@@ -20,7 +21,7 @@ export class BusinessFinancialPage implements OnInit {
   debtsOver3:number;
   total:number;
   bank:number;
-  constructor(private fb:FormBuilder) { }
+  constructor(private fb:FormBuilder,private report:ReportsService) { }
 
   ngOnInit() {
     this.businessForm = this.fb.group({
@@ -86,6 +87,10 @@ export class BusinessFinancialPage implements OnInit {
 
     this.total = this.cash + this.debtors + this.debtsBelow3 + this.debtsOver3 + this.equipment + this.furniture 
                   +this.loans + this.netEarning + this.premises + this.vehicles + this.bank
+  }
+
+  submit(){
+       this.report.businessFinancialAmnt(this.total)
   }
 
 }

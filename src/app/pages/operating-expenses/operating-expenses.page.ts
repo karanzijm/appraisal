@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { OtherOperatingExpensePage } from '../other-operating-expense/other-operating-expense.page';
 import { ModalController } from '@ionic/angular';
+import { ReportsService } from 'src/app/services/reports.service';
 
 @Component({
   selector: 'app-operating-expenses',
@@ -24,7 +25,7 @@ export class OperatingExpensesPage implements OnInit {
   loanInstallments:number
   additionalOp:number
 
-  constructor(private fb:FormBuilder,public modalController: ModalController) { }
+  constructor(private fb:FormBuilder,public modalController: ModalController,private report:ReportsService) { }
 
   ngOnInit() {
     this.operatingExpensesForm = this.fb.group({
@@ -115,6 +116,10 @@ export class OperatingExpensesPage implements OnInit {
     });
     return await modal.present();
 
+  }
+
+  submit(){
+      this.report.operatingExpensesAmnt(this.total)
   }
 
 }

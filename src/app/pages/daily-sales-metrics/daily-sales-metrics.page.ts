@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
+import { ReportsService } from 'src/app/services/reports.service';
 
 @Component({
   selector: 'app-daily-sales-metrics',
@@ -34,11 +35,18 @@ export class DailySalesMetricsPage implements OnInit {
 
 
   
-  constructor(private fb:FormBuilder) { }
+  constructor(private fb:FormBuilder,private report:ReportsService) { }
 
   ngOnInit() {
     this.salesForm = this.fb.group({
-      total:new FormControl(),
+     
+      monday:new FormControl('Monday'),
+      tuesday:new FormControl('Tuesday'),
+      wednesday:new FormControl('Wednesday'),
+      thursday:new FormControl('Thursday'),
+      friday:new FormControl('Friday'),
+      saturday:new FormControl('Saturday'),
+      sunday:new FormControl('Sunday'),
       mondayRate:new FormControl(),
       mondaySales:new FormControl(),
       tuesdayRate:new FormControl(),
@@ -96,6 +104,11 @@ export class DailySalesMetricsPage implements OnInit {
 
     this.total = this.mondaySales + this.tuesdaySales +this.wednesdaySales +this.thursdaySales
     + this.fridaySales + this.saturdaySales + this.sundaySales
+  }
+
+  submit(){
+   // console.log(this.salesForm.value)
+    this.report.dailySalesMetricsAmnt(this.salesForm.value,this.total);
   }
 
 }
