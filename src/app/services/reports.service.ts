@@ -16,6 +16,11 @@ export class ReportsService {
   salesMetrics:any;
   operatingExpense:any;
   businessFinancial:any;
+  dailySalesAv:number;
+  monthlySales:number;
+  costOfSales:number;
+  totalPurchases:number;
+  totalMonthlySales:number;
 
   constructor() { }
 
@@ -36,14 +41,37 @@ export class ReportsService {
   }
   familyExpensesAmnt(value){
     this.familyExpenses = value;
+    
     console.log(this.familyExpenses)
   }
   stockValuationAmnt(value){
+    console.log(this.totalMonthlySales)
+    console.log(this.totalPurchases)
+   // if(this.totalMonthlySales ===undefined)
+        this.totalMonthlySales = 0
+
+    //if(this.totalPurchases===undefined)
+        this.totalPurchases = 0
+
     console.log("stockValuationAmnt"+JSON.stringify(value))
+    value.forEach(element => {
+      this.totalMonthlySales +=(element.price * element.quantity);
+      this.totalPurchases +=(element.cost * element.quantity); 
+    });
+    console.log("After calc "+this.totalMonthlySales)
+    console.log("After calc "+this.totalPurchases)
+
+    this. totalCostOfSales()
 
   }
   dailySalesMetricsAmnt(form,total){
     console.log("dailySalesMetricsAmnt"+JSON.stringify(form))
+    this.dailySalesAv = total/7
+  
+    //daily av * each day in a week * each week in a month
+    this.monthlySales = this.dailySalesAv * 4 * 7
+    console.log(this.monthlySales)
+    this. totalCostOfSales()
   }
   operatingExpensesAmnt(value){
     console.log("operatingExpensesAmnt "+JSON.stringify(value))
@@ -53,6 +81,25 @@ export class ReportsService {
   businessFinancialAmnt(value){
     console.log("businessFinancialAmnt "+JSON.stringify(value))
 
+  }
+  totalCostOfSales(){
+
+    if(this.monthlySales === undefined)
+    this.monthlySales = 0;
+
+    if(this.totalMonthlySales === undefined)
+       this.totalMonthlySales = 0;
+      
+    if(this.totalMonthlySales === undefined){
+      this.costOfSales = 0
+    }else{
+    
+
+    this.costOfSales = Math.min(this.monthlySales,this.totalMonthlySales)
+
+    this.costOfSales =  (this.totalPurchases * this.costOfSales)/this.totalMonthlySales
+  }
+    console.log(this.costOfSales)
   }
 
 

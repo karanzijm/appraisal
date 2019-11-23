@@ -1,0 +1,93 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Report</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-segment value="javascript">
+        <ion-segment-button (ionSelect)="segmentButtonClicked()">
+          <ion-label>Cash</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="javascript">
+          <ion-label>Javascript</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+
+      <ion-card id="cashflow">
+        <p>Cash Flow</p>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              Inflow
+            </ion-col>
+            <ion-col id="amount" align-self-end>12000</ion-col>
+          </ion-row>
+
+          <ion-row>
+              <ion-col>
+                Sales
+              </ion-col>
+              <ion-col id="amount" align-self-end>12000</ion-col>
+
+            </ion-row>
+
+            <ion-row>
+                <ion-col>
+                  Other Business Income
+                </ion-col>
+                <ion-col id="amount" align-self-end>12000</ion-col>
+
+              </ion-row>
+
+              <ion-row>
+                  <ion-col>
+                    Family Earning
+                  </ion-col>
+                  <ion-col id="amount" align-self-end>12000</ion-col>
+
+                </ion-row>
+                <br/>
+                <ion-row>
+                    <ion-col>
+                      Outflow
+                    </ion-col>
+                    <ion-col id="amount" align-self-end>12000</ion-col>
+
+                  </ion-row>  
+
+                  <ion-row>
+                      <ion-col>
+                        Cost of Sales
+                      </ion-col>
+                      <ion-col id="amount" align-self-end>12000</ion-col>
+
+                    </ion-row> 
+
+                    <ion-row>
+                        <ion-col>
+                          Business Operating Expense
+                        </ion-col>
+                        <ion-col id="amount" align-self-end>12000</ion-col>
+
+                      </ion-row>
+
+                      <ion-row>
+                          <ion-col>
+                            Family Expense
+                          </ion-col>
+                          <ion-col id="amount" align-self-end>12000</ion-col>
+
+                      </ion-row>  
+
+                      <ion-row>
+                          <ion-col>
+                            Available Surplus
+                          </ion-col>
+                          <ion-col id="amount" align-self-end>12000</ion-col>
+
+                        </ion-row>
+        </ion-grid>
+      </ion-card>
+</ion-content>
+
