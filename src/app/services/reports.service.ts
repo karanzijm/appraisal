@@ -21,6 +21,7 @@ export class ReportsService {
   costOfSales:number;
   totalPurchases:number;
   totalMonthlySales:number;
+  spouseInflow:number;
 
   constructor() { }
 
@@ -35,6 +36,9 @@ export class ReportsService {
   }
   familyEarningsAmnt(value){
     console.log("familyEarningsAmnt "+JSON.stringify(value))
+    this.familyEarnings = value;
+    this.spouseInflow = value.monthlySales;
+
   
     //let interest = (())
   // this.installment = 
@@ -84,17 +88,22 @@ export class ReportsService {
   }
   totalCostOfSales(){
 
+   console.log(this.monthlySales)
+   console.log(this.totalMonthlySales)
+   console.log(this.costOfSales)
+
+
     if(this.monthlySales === undefined)
     this.monthlySales = 0;
 
-    if(this.totalMonthlySales === undefined)
-       this.totalMonthlySales = 0;
+    // if(this.totalMonthlySales === undefined)
+    //    this.totalMonthlySales = 0;
       
     if(this.totalMonthlySales === undefined){
       this.costOfSales = 0
     }else{
     
-
+  console.log("hsabsa")
     this.costOfSales = Math.min(this.monthlySales,this.totalMonthlySales)
 
     this.costOfSales =  (this.totalPurchases * this.costOfSales)/this.totalMonthlySales

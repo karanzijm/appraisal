@@ -11,7 +11,7 @@ export class MenuPage implements OnInit {
   
   pages = [
     {
-      title: 'Home',
+      title: 'Loan Details',
       url: '/menu/home',
       icon: 'water'
     },
@@ -21,6 +21,20 @@ export class MenuPage implements OnInit {
       icon: 'Planet'
     },
     {
+      
+        title: 'Family Expenses',
+        url: '/menu/family-expenses',
+        icon: 'Planet'
+      
+    },
+    {
+      
+      title: 'Operating Expense',
+      url: '/menu/operating-expenses',
+      icon: 'Planet'
+    
+  },
+    {
       title: 'Stock valuation',
       url: '/menu/stock-valuation',
       icon: 'Planet'
@@ -28,6 +42,11 @@ export class MenuPage implements OnInit {
     {
       title: 'Sales Metrics',
       url: '/menu/daily-sales-metrics',
+      icon: 'Planet'
+    },
+    {
+      title: 'Business Financial',
+      url: '/menu/business-financial',
       icon: 'Planet'
     },
     {

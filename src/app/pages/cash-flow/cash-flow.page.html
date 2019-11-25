@@ -1,5 +1,8 @@
 <ion-header>
   <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
     <ion-title>Report</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -7,10 +10,10 @@
 <ion-content>
     <ion-segment value="javascript">
         <ion-segment-button (ionSelect)="segmentButtonClicked()">
-          <ion-label>Cash</ion-label>
+          <ion-label>Balance Sheet</ion-label>
         </ion-segment-button>
         <ion-segment-button value="javascript">
-          <ion-label>Javascript</ion-label>
+          <ion-label>Cash Flow</ion-label>
         </ion-segment-button>
       </ion-segment>
 
@@ -18,17 +21,17 @@
         <p>Cash Flow</p>
         <ion-grid>
           <ion-row>
-            <ion-col>
+            <ion-col id="main">
               Inflow
             </ion-col>
-            <ion-col id="amount" align-self-end>12000</ion-col>
+            <ion-col id="amount" class="align-self-end">{{ inflow | number:0}}</ion-col>
           </ion-row>
 
           <ion-row>
               <ion-col>
                 Sales
               </ion-col>
-              <ion-col id="amount" align-self-end>12000</ion-col>
+              <ion-col id="amount" class="align-self-end">{{ sales | number:0}}</ion-col>
 
             </ion-row>
 
@@ -36,7 +39,7 @@
                 <ion-col>
                   Other Business Income
                 </ion-col>
-                <ion-col id="amount" align-self-end>12000</ion-col>
+                <ion-col id="amount" class="align-self-end">{{otherBusinessIncome | number:0}}</ion-col>
 
               </ion-row>
 
@@ -44,15 +47,15 @@
                   <ion-col>
                     Family Earning
                   </ion-col>
-                  <ion-col id="amount" align-self-end>12000</ion-col>
+                  <ion-col id="amount" class="align-self-end">{{ familyEarning | number:0}}</ion-col>
 
                 </ion-row>
                 <br/>
                 <ion-row>
-                    <ion-col>
+                    <ion-col id="main">
                       Outflow
                     </ion-col>
-                    <ion-col id="amount" align-self-end>12000</ion-col>
+                    <ion-col id="amount" class="align-self-end">{{ outflow | number:0}}</ion-col>
 
                   </ion-row>  
 
@@ -60,7 +63,7 @@
                       <ion-col>
                         Cost of Sales
                       </ion-col>
-                      <ion-col id="amount" align-self-end>12000</ion-col>
+                      <ion-col id="amount" class="align-self-end">{{ costOfSales | number:0}}</ion-col>
 
                     </ion-row> 
 
@@ -68,7 +71,7 @@
                         <ion-col>
                           Business Operating Expense
                         </ion-col>
-                        <ion-col id="amount" align-self-end>12000</ion-col>
+                        <ion-col id="amount" class="align-self-end">{{ businessOperationExpenses | number:0}}</ion-col>
 
                       </ion-row>
 
@@ -76,7 +79,7 @@
                           <ion-col>
                             Family Expense
                           </ion-col>
-                          <ion-col id="amount" align-self-end>12000</ion-col>
+                          <ion-col id="amount" class="align-self-end">{{ familyExpense | number:0}}</ion-col>
 
                       </ion-row>  
 
@@ -84,10 +87,136 @@
                           <ion-col>
                             Available Surplus
                           </ion-col>
-                          <ion-col id="amount" align-self-end>12000</ion-col>
+                          <ion-col id="amount" class="align-self-end">{{ surplus | number:0 }}</ion-col>
 
                         </ion-row>
         </ion-grid>
       </ion-card>
+
+      <div id="balanceSheet">
+           <p>Balance Sheet</p>
+           <ion-card>
+             <ion-grid>
+
+               <ion-row>
+                 <ion-col>Current Assets</ion-col>
+                 <ion-col id="amount">20000</ion-col>
+               </ion-row>
+
+               <ion-row>
+                 <ion-col>Cash</ion-col>
+                 <ion-col id="amount">21000</ion-col>
+               </ion-row>
+               
+               <ion-row>
+                 <ion-col>Bank</ion-col>
+                 <ion-col id="amount">20000    
+                 </ion-col>
+               </ion-row>
+
+               <ion-row>
+                 <ion-col>Recievables</ion-col>
+                 <ion-col id="amount">9000
+                   
+                 </ion-col>
+               </ion-row>
+
+               <ion-row>
+                 <ion-col>Inventory</ion-col>
+                 <ion-col id="amount">24100                   
+                 </ion-col>
+               </ion-row>
+             </ion-grid>
+           </ion-card>
+
+           <ion-card>
+              <ion-grid>
+
+                  <ion-row>
+                    <ion-col>Fixed Assets</ion-col>
+                    <ion-col id="amount">20000</ion-col>
+                  </ion-row>
+   
+                  <ion-row>
+                    <ion-col>Furniture</ion-col>
+                    <ion-col id="amount">21000</ion-col>
+                  </ion-row>
+                  
+                  <ion-row>
+                    <ion-col>Equipment/tools</ion-col>
+                    <ion-col id="amount">20000    
+                    </ion-col>
+                  </ion-row>
+   
+                  <ion-row>
+                    <ion-col>Vehicle</ion-col>
+                    <ion-col id="amount">9000
+                      
+                    </ion-col>
+                  </ion-row>
+   
+                  <ion-row>
+                    <ion-col>Business premises</ion-col>
+                    <ion-col id="amount">24100                   
+                    </ion-col>
+                  </ion-row>
+
+                </ion-grid>
+
+           </ion-card>
+
+           <ion-card>
+             <ion-grid>
+               <ion-row>
+                 <ion-col>Total Assets</ion-col>
+                 <ion-col id="amount">20000</ion-col>
+               </ion-row>
+             </ion-grid>
+           </ion-card>
+
+           <ion-card>
+              <ion-grid>
+
+                  <ion-row>
+                    <ion-col>Loans</ion-col>
+                    <ion-col id="amount">20000</ion-col>
+                  </ion-row>
+   
+                  <ion-row>
+                    <ion-col>Short term debt</ion-col>
+                    <ion-col id="amount">21000</ion-col>
+                  </ion-row> 
+
+                </ion-grid>
+           </ion-card>
+
+           <ion-card>
+             <ion-grid>
+               <ion-row>
+                 <ion-col>Long term liabilities</ion-col>
+                 <ion-col id="amount">0</ion-col>
+               </ion-row>
+             </ion-grid>
+           </ion-card>
+
+    <ion-card>
+        <ion-grid>
+            <ion-row>
+              <ion-col>Total liabilities</ion-col>
+              <ion-col id="amount">0</ion-col>  
+            </ion-row>
+
+            <ion-row>
+               <ion-col>Equiity</ion-col>
+               <ion-col id="amount">0</ion-col>  
+             </ion-row>
+
+             <ion-row>
+                 <ion-col>Liability and Equity</ion-col>
+                 <ion-col id="amount">0</ion-col>  
+               </ion-row>
+          </ion-grid>
+    </ion-card>          
+      </div>
 </ion-content>
 
