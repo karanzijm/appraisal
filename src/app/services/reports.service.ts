@@ -22,11 +22,12 @@ export class ReportsService {
   totalPurchases:number;
   totalMonthlySales:number;
   spouseInflow:number;
+  totalCash:number;
 
   constructor() { }
 
   loanDetailsAmnt(value){
-     console.log(value)
+     ///console.log(value)
      this.loanAmount = value.loanAmount
      this.loanTerm = value.period
      this.loanInterest = ((value.interest/100)/12)
@@ -38,14 +39,14 @@ export class ReportsService {
     console.log("familyEarningsAmnt "+JSON.stringify(value))
     this.familyEarnings = value;
     this.spouseInflow = value.monthlySales;
+    this.spouseCash = value.cash
 
-  
     //let interest = (())
-  // this.installment = 
+  // this.installment =
   }
   familyExpensesAmnt(value){
     this.familyExpenses = value;
-    
+
     console.log(this.familyExpenses)
   }
   stockValuationAmnt(value){
@@ -60,7 +61,7 @@ export class ReportsService {
     console.log("stockValuationAmnt"+JSON.stringify(value))
     value.forEach(element => {
       this.totalMonthlySales +=(element.price * element.quantity);
-      this.totalPurchases +=(element.cost * element.quantity); 
+      this.totalPurchases +=(element.cost * element.quantity);
     });
     console.log("After calc "+this.totalMonthlySales)
     console.log("After calc "+this.totalPurchases)
@@ -71,7 +72,7 @@ export class ReportsService {
   dailySalesMetricsAmnt(form,total){
     console.log("dailySalesMetricsAmnt"+JSON.stringify(form))
     this.dailySalesAv = total/7
-  
+
     //daily av * each day in a week * each week in a month
     this.monthlySales = this.dailySalesAv * 4 * 7
     console.log(this.monthlySales)
@@ -82,8 +83,17 @@ export class ReportsService {
     this.operatingExpense = value
     console.log(this.operatingExpense)
   }
-  businessFinancialAmnt(value){
+  businessFinancialAmnt(value,form){
     console.log("businessFinancialAmnt "+JSON.stringify(value))
+    console.log(form.cash)
+    if(form.cash===null)
+        form.cash = 0
+
+    if(form.bank === null)
+      form.bank = 0
+
+    //if()
+    this.totalCash = form.cash +form.bank
 
   }
   totalCostOfSales(){
@@ -98,11 +108,11 @@ export class ReportsService {
 
     // if(this.totalMonthlySales === undefined)
     //    this.totalMonthlySales = 0;
-      
+
     if(this.totalMonthlySales === undefined){
       this.costOfSales = 0
     }else{
-    
+
   console.log("hsabsa")
     this.costOfSales = Math.min(this.monthlySales,this.totalMonthlySales)
 

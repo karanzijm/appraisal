@@ -19,6 +19,7 @@ surplus:number;
 familyExpense:number;
 inflow:number;
 outflow:number;
+cash:number;
 
   constructor(private report:ReportsService) { }
 
@@ -29,23 +30,32 @@ outflow:number;
     if(this.report.costOfSales === undefined)
           this.report.costOfSales = 0
 
-    if(this.report.familyEarnings === undefined)     
+    if(this.report.familyEarnings === undefined)
         this.report.familyEarnings = 0
 
     if(this.report.monthlySales === undefined)
       this.report.monthlySales = 0
 
-     if(this.report.familyExpenses === undefined) 
+     if(this.report.familyExpenses === undefined)
         this.report.familyExpenses = 0
 
      if(this.report.operatingExpense === undefined)
          this.report.operatingExpense = 0
 
      if(this.otherBusinessIncome === undefined)
-     this.otherBusinessIncome = 0
+        this.otherBusinessIncome = 0
 
      if(this.report.spouseInflow === undefined)
-     this.report.spouseInflow = 0
+        this.report.spouseInflow = 0
+
+     if(this.report.totalCash === undefined)
+         this.report.totalCash = 0;
+
+     if(this.report.spouseCash === undefined)
+        this.report.spouseCash = 0
+
+
+    this.cash = this.report.totalCash + this.report.spouseCash
 
       Math.ceil(this.report.costOfSales)
    this.costOfSales = this.report.costOfSales;
@@ -57,23 +67,23 @@ outflow:number;
   //  Math.ceil(this.report.monthlySales)
    this.sales= this.report.monthlySales;
    console.log(this.sales)
-   
+
 
   //  Math.ceil(this.report.familyExpenses)
    this.familyExpense = this.report.familyExpenses;
-   
+
   //  Math.ceil(this.report.operatingExpense)
    this.businessOperationExpenses = this.report.operatingExpense
-   
-   
+
+
    this.inflow = this.sales + this.otherBusinessIncome + this.familyEarning;
-   
+
 
    this.outflow = this.costOfSales + this.businessOperationExpenses + this.familyExpense
 
 
    this.surplus = this.inflow - this.outflow
-  
+
 
   }
 

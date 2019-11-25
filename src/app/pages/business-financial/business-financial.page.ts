@@ -41,14 +41,14 @@ export class BusinessFinancialPage implements OnInit {
 
   totalFinances(){
     this.total = 0
-    this.netEarning = this.businessForm.controls['netEarning'].value 
+    this.netEarning = this.businessForm.controls['netEarning'].value
     if(this.netEarning===null)
        this.netEarning=0
 
     this.cash = this.businessForm.controls['cash'].value
     if(this.cash===null)
       this.cash = 0
-    
+
     this.debtors =  this.businessForm.controls['debtors'].value
     if(this.debtors===null)
       this.debtors= 0
@@ -85,12 +85,12 @@ export class BusinessFinancialPage implements OnInit {
     if(this.bank ===null)
     this.bank=0
 
-    this.total = this.cash + this.debtors + this.debtsBelow3 + this.debtsOver3 + this.equipment + this.furniture 
+    this.total = this.cash + this.debtors + this.debtsBelow3 + this.debtsOver3 + this.equipment + this.furniture
                   +this.loans + this.netEarning + this.premises + this.vehicles + this.bank
   }
 
   submit(){
-       this.report.businessFinancialAmnt(this.total)
+       this.report.businessFinancialAmnt(this.total,this.businessForm.value)
   }
 
 }
