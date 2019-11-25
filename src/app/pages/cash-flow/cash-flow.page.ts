@@ -20,6 +20,9 @@ familyExpense:number;
 inflow:number;
 outflow:number;
 cash:number;
+bank:number;
+receivables:number;
+inventory:number;
 
   constructor(private report:ReportsService) { }
 
@@ -53,9 +56,19 @@ cash:number;
 
      if(this.report.spouseCash === undefined)
         this.report.spouseCash = 0
+      
+      if(this.report.bankCash === undefined)
+         this.report.bankCash = 0
+      
+      if(this.report.totalPurchases === undefined)
+        this.report.totalPurchases = 0
 
+      // if(this.report.totalPurchases === undefined)
+      // this.report.totalPurchases = 0
 
+    this.inventory = this.report.totalPurchases
     this.cash = this.report.totalCash + this.report.spouseCash
+    this.bank = this.report.bankCash
 
       Math.ceil(this.report.costOfSales)
    this.costOfSales = this.report.costOfSales;

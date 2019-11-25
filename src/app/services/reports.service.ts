@@ -23,6 +23,8 @@ export class ReportsService {
   totalMonthlySales:number;
   spouseInflow:number;
   totalCash:number;
+  spouseCash:number;
+  bankCash:number;
 
   constructor() { }
 
@@ -61,7 +63,7 @@ export class ReportsService {
     console.log("stockValuationAmnt"+JSON.stringify(value))
     value.forEach(element => {
       this.totalMonthlySales +=(element.price * element.quantity);
-      this.totalPurchases +=(element.cost * element.quantity);
+      this.totalPurchases +=  (element.cost * element.quantity);
     });
     console.log("After calc "+this.totalMonthlySales)
     console.log("After calc "+this.totalPurchases)
@@ -93,8 +95,8 @@ export class ReportsService {
       form.bank = 0
 
     //if()
-    this.totalCash = form.cash +form.bank
-
+    this.totalCash = form.cash
+    this.bankCash = form.bank
   }
   totalCostOfSales(){
 
