@@ -25,6 +25,7 @@ export class ReportsService {
   totalCash:number;
   spouseCash:number;
   bankCash:number;
+  receivables:number;
 
   constructor() { }
 
@@ -94,9 +95,17 @@ export class ReportsService {
     if(form.bank === null)
       form.bank = 0
 
-    //if()
+    if(form.debtsBelow3 === null )
+    form.debtsBelow3 = 0
+
+    if(form.debtsOver3 === null )
+    form.debtsOver3 = 0
+      
     this.totalCash = form.cash
     this.bankCash = form.bank
+    this.receivables = form.debtsBelow3 + form.debtsOver3;
+
+
   }
   totalCostOfSales(){
 
@@ -115,7 +124,7 @@ export class ReportsService {
       this.costOfSales = 0
     }else{
 
-  console.log("hsabsa")
+
     this.costOfSales = Math.min(this.monthlySales,this.totalMonthlySales)
 
     this.costOfSales =  (this.totalPurchases * this.costOfSales)/this.totalMonthlySales

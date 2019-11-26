@@ -63,9 +63,12 @@ inventory:number;
       if(this.report.totalPurchases === undefined)
         this.report.totalPurchases = 0
 
+      if(this.report.receivables === undefined)
+          this.report.receivables = 0;
+
       // if(this.report.totalPurchases === undefined)
       // this.report.totalPurchases = 0
-
+    this.receivables = this.report.receivables
     this.inventory = this.report.totalPurchases
     this.cash = this.report.totalCash + this.report.spouseCash
     this.bank = this.report.bankCash
