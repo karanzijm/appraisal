@@ -19,6 +19,7 @@ export class HomePage implements OnInit {
       interest:new FormControl('',[Validators.required])
 
     })
+
   }
 
   submit(){

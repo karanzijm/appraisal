@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class ReportsService {
 
   loanDetails:any
-  loanAmount:number;
+  loanAmount:number=0;
   loanTerm:number;
   loanInterest:number;
   installment:number;
@@ -19,13 +19,24 @@ export class ReportsService {
   dailySalesAv:number;
   monthlySales:number;
   costOfSales:number;
-  totalPurchases:number;
-  totalMonthlySales:number;
-  spouseInflow:number;
-  totalCash:number;
-  spouseCash:number;
-  bankCash:number;
-  receivables:number;
+  totalPurchases:number = 0;
+  totalMonthlySales:number = 0;
+  spouseInflow:number = 0;
+  totalCash:number = 0;
+  spouseCash:number = 0;
+  bankCash:number = 0;
+  receivables:number = 0;
+  furniture:number= 0;
+  vehicles:number = 0;
+  premises:number = 0;
+  equipment:number = 0;
+  loans:number = 0;
+  shortTermDebt:number = 0;
+  longTermDebt:number = 0;
+  sales:number=0
+  collateral:number=0
+  proposedInstallment:number=0
+  
 
   constructor() { }
 
@@ -37,6 +48,8 @@ export class ReportsService {
      console.log(this.loanInterest)
     this.installment = this.loanAmount*(((this.loanInterest*(Math.pow((1+this.loanInterest),this.loanTerm))))/((Math.pow((1+this.loanInterest),this.loanTerm))-1))
     console.log(this.installment)
+    this.collateral = value.collateral;
+    this.proposedInstallment = value.installment
   }
   familyEarningsAmnt(value){
     console.log("familyEarningsAmnt "+JSON.stringify(value))
@@ -99,22 +112,46 @@ export class ReportsService {
     form.debtsBelow3 = 0
 
     if(form.debtsOver3 === null )
-    form.debtsOver3 = 0
+        form.debtsOver3 = 0
+
+    if(form.furniture === null)
+        form.furniture = 0
       
+    if(form.vehicles === null)
+      form.vehicles = 0
+
+    if(form.premises === null)
+        form.premises = 0
+
+    if(form.equipment === null)
+       form.equipment = 0
+    
+    if(form.debtors === null)
+      form.debtors = 0
+      
+       /** Current Assets */
     this.totalCash = form.cash
     this.bankCash = form.bank
-    this.receivables = form.debtsBelow3 + form.debtsOver3;
+    this.receivables = form.debtors
+
+     /** fixed Assets */
+     this.furniture = form.furniture;
+     this.vehicles = form.vehicles;
+     this.premises = form.premises;
+     this.equipment = form.equipment;
+
+     /**short term liabilities */
+     this.loans = form.loans;
+     this.shortTermDebt = form.debtsBelow3
+
+     /**Long term liabilities */
+     this.longTermDebt = form.debtsOver3
 
 
   }
   totalCostOfSales(){
 
-   console.log(this.monthlySales)
-   console.log(this.totalMonthlySales)
-   console.log(this.costOfSales)
-
-
-    if(this.monthlySales === undefined)
+   if(this.monthlySales === undefined)
     this.monthlySales = 0;
 
     // if(this.totalMonthlySales === undefined)
@@ -124,10 +161,11 @@ export class ReportsService {
       this.costOfSales = 0
     }else{
 
+//get sales which is the min of the daily average for the whole month(dailav*4*7) and the sales according to stock n the selling value
+    this.sales = Math.min(this.monthlySales,this.totalMonthlySales)
 
-    this.costOfSales = Math.min(this.monthlySales,this.totalMonthlySales)
-
-    this.costOfSales =  (this.totalPurchases * this.costOfSales)/this.totalMonthlySales
+    //get cost of sales
+    this.costOfSales = (this.totalPurchases/this.totalMonthlySales) * this.sales
   }
     console.log(this.costOfSales)
   }

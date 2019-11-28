@@ -8,11 +8,14 @@
 </ion-header>
 
 <ion-content>
-    <ion-segment value="javascript">
-        <ion-segment-button (ionSelect)="segmentButtonClicked()">
+    <ion-segment value="loanDetails">
+        <ion-segment-button value="loanDetails" color="primary" (ionSelect)="loanDetails()" checked>
+            <ion-label>Loan Details</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="balanceSheet" (ionSelect)="balanceSheet()">
           <ion-label>Balance Sheet</ion-label>
         </ion-segment-button>
-        <ion-segment-button value="javascript">
+        <ion-segment-button value="cashFlow" (ionSelect)="cashFlow()">
           <ion-label>Cash Flow</ion-label>
         </ion-segment-button>
       </ion-segment>
@@ -24,14 +27,14 @@
             <ion-col id="main">
               Inflow
             </ion-col>
-            <ion-col id="amount" class="align-self-end">{{ inflow | number:0}}</ion-col>
+            <ion-col id="amount" class="align-self-end">{{ inflow  | number:'1.0'}}</ion-col>
           </ion-row>
 
           <ion-row>
               <ion-col>
                 Sales
               </ion-col>
-              <ion-col id="amount" class="align-self-end">{{ sales | number:0}}</ion-col>
+              <ion-col id="amount" class="align-self-end">{{ sales  | number:'1.0'}}</ion-col>
 
             </ion-row>
 
@@ -39,7 +42,7 @@
                 <ion-col>
                   Other Business Income
                 </ion-col>
-                <ion-col id="amount" class="align-self-end">{{otherBusinessIncome | number:0}}</ion-col>
+                <ion-col id="amount" class="align-self-end">{{otherBusinessIncome  | number:'1.0'}}</ion-col>
 
               </ion-row>
 
@@ -47,7 +50,7 @@
                   <ion-col>
                     Family Earning
                   </ion-col>
-                  <ion-col id="amount" class="align-self-end">{{ familyEarning | number:0}}</ion-col>
+                  <ion-col id="amount" class="align-self-end">{{ familyEarning  | number:'1.0'}}</ion-col>
 
                 </ion-row>
                 <br/>
@@ -55,7 +58,7 @@
                     <ion-col id="main">
                       Outflow
                     </ion-col>
-                    <ion-col id="amount" class="align-self-end">{{ outflow | number:0}}</ion-col>
+                    <ion-col id="amount" class="align-self-end">{{ outflow  | number:'1.0'}}</ion-col>
 
                   </ion-row>  
 
@@ -63,7 +66,7 @@
                       <ion-col>
                         Cost of Sales
                       </ion-col>
-                      <ion-col id="amount" class="align-self-end">{{ costOfSales | number:0}}</ion-col>
+                      <ion-col id="amount" class="align-self-end">{{ costOfSales  | number:'1.0'}}</ion-col>
 
                     </ion-row> 
 
@@ -71,7 +74,7 @@
                         <ion-col>
                           Business Operating Expense
                         </ion-col>
-                        <ion-col id="amount" class="align-self-end">{{ businessOperationExpenses | number:0}}</ion-col>
+                        <ion-col id="amount" class="align-self-end">{{ businessOperationExpenses  | number:'1.0'}}</ion-col>
 
                       </ion-row>
 
@@ -79,7 +82,7 @@
                           <ion-col>
                             Family Expense
                           </ion-col>
-                          <ion-col id="amount" class="align-self-end">{{ familyExpense | number:0}}</ion-col>
+                          <ion-col id="amount" class="align-self-end">{{ familyExpense  | number:'1.0'}}</ion-col>
 
                       </ion-row>  
 
@@ -87,7 +90,7 @@
                           <ion-col>
                             Available Surplus
                           </ion-col>
-                          <ion-col id="amount" class="align-self-end">{{ surplus | number:0 }}</ion-col>
+                          <ion-col id="amount" class="align-self-end">{{ surplus  | number:'1.0' }}</ion-col>
 
                         </ion-row>
         </ion-grid>
@@ -100,30 +103,30 @@
 
                <ion-row>
                  <ion-col>Current Assets</ion-col>
-                 <ion-col id="amount">{{cash}}</ion-col>
+                 <ion-col class="totals" id="amount">{{currentAssets | number:'1.0'}}</ion-col>
                </ion-row>
 
                <ion-row>
                  <ion-col>Cash</ion-col>
-                 <ion-col id="amount">{{cash}}</ion-col>
+                 <ion-col id="amount">{{cash | number:'1.0'}}</ion-col>
                </ion-row>
                
                <ion-row>
                  <ion-col>Bank</ion-col>
-                 <ion-col id="amount">{{bank}}    
+                 <ion-col id="amount">{{bank | number:'1.0'}}    
                  </ion-col>
                </ion-row>
 
                <ion-row>
                  <ion-col>Recievables</ion-col>
-                 <ion-col id="amount">{{receivables}}
+                 <ion-col id="amount">{{receivables | number:'1.0'}}
                    
                  </ion-col>
                </ion-row>
 
                <ion-row>
                  <ion-col>Inventory</ion-col>
-                 <ion-col id="amount">{{inventory}}                   
+                 <ion-col id="amount">{{inventory | number:'1.0'}}                   
                  </ion-col>
                </ion-row>
              </ion-grid>
@@ -134,30 +137,30 @@
 
                   <ion-row>
                     <ion-col>Fixed Assets</ion-col>
-                    <ion-col id="amount">20000</ion-col>
+                    <ion-col class="totals" id="amount">{{fixedAssets | number:'1.0'}}</ion-col>
                   </ion-row>
    
                   <ion-row>
                     <ion-col>Furniture</ion-col>
-                    <ion-col id="amount">21000</ion-col>
+                    <ion-col id="amount">{{furniture | number:'1.0'}}</ion-col>
                   </ion-row>
                   
                   <ion-row>
                     <ion-col>Equipment/tools</ion-col>
-                    <ion-col id="amount">20000    
+                    <ion-col id="amount">{{equipment | number:'1.0'}}    
                     </ion-col>
                   </ion-row>
    
                   <ion-row>
                     <ion-col>Vehicle</ion-col>
-                    <ion-col id="amount">9000
+                    <ion-col id="amount">{{vehicles | number:'1.0'}}
                       
                     </ion-col>
                   </ion-row>
    
                   <ion-row>
                     <ion-col>Business premises</ion-col>
-                    <ion-col id="amount">24100                   
+                    <ion-col id="amount">{{premises | number:'1.0'}}                   
                     </ion-col>
                   </ion-row>
 
@@ -169,7 +172,7 @@
              <ion-grid>
                <ion-row>
                  <ion-col>Total Assets</ion-col>
-                 <ion-col id="amount">20000</ion-col>
+                 <ion-col class="totals" id="amount">{{totalAssets | number:'1.0'}}</ion-col>
                </ion-row>
              </ion-grid>
            </ion-card>
@@ -177,14 +180,19 @@
            <ion-card>
               <ion-grid>
 
+                <ion-row>
+                  <ion-col>Short term liabilities</ion-col>
+                  <ion-col class="totals" id="amount">{{shortTermLiabilities | number:'1.0'}}</ion-col>
+                </ion-row>
+
                   <ion-row>
                     <ion-col>Loans</ion-col>
-                    <ion-col id="amount">20000</ion-col>
+                    <ion-col id="amount">{{loan | number:'1.0'}}</ion-col>
                   </ion-row>
    
                   <ion-row>
                     <ion-col>Short term debt</ion-col>
-                    <ion-col id="amount">21000</ion-col>
+                    <ion-col id="amount">{{shortTermDebt | number:'1.0'}}</ion-col>
                   </ion-row> 
 
                 </ion-grid>
@@ -194,7 +202,7 @@
              <ion-grid>
                <ion-row>
                  <ion-col>Long term liabilities</ion-col>
-                 <ion-col id="amount">0</ion-col>
+                 <ion-col class="totals" id="amount">{{longTermLiabilities | number:'1.0'}}</ion-col>
                </ion-row>
              </ion-grid>
            </ion-card>
@@ -203,20 +211,148 @@
         <ion-grid>
             <ion-row>
               <ion-col>Total liabilities</ion-col>
-              <ion-col id="amount">0</ion-col>  
+              <ion-col class="totals" id="amount">{{totalLiabilities | number:'1.0'}}</ion-col>  
             </ion-row>
 
             <ion-row>
-               <ion-col>Equiity</ion-col>
-               <ion-col id="amount">0</ion-col>  
+               <ion-col>Equity</ion-col>
+               <ion-col class="totals" id="amount">{{equity | number:'1.0'}}</ion-col>  
              </ion-row>
 
              <ion-row>
                  <ion-col>Liability and Equity</ion-col>
-                 <ion-col id="amount">0</ion-col>  
+                 <ion-col class="totals" id="amount">{{assets | number:'1.0'}}</ion-col>  
                </ion-row>
           </ion-grid>
     </ion-card>          
+      </div>
+
+      <div id="loanDetails">
+       <ion-card>
+          <ion-grid fixed>
+              <ion-row>
+                <ion-col>Loan Amount:</ion-col>
+                <ion-col class="totals" id="amount">{{loanAmount | number:'1.2-2'}}</ion-col>
+              </ion-row>
+    
+              <ion-row>
+                <ion-col>Loan Term(Month(s)):</ion-col>
+                <ion-col id="amount">{{loanTerm | number:'1.2-2'}} </ion-col>
+              </ion-row>
+    
+              <ion-row>
+                <ion-col>Interest Rate:</ion-col>
+                <ion-col id="amount">{{loanInterest | percent:'1.2'}} </ion-col>
+              </ion-row>
+    
+              <ion-row>
+                <ion-col>Installment Per Month:</ion-col>
+                <ion-col class="totals" id="amount">{{installment | number:'1.2-2'}}</ion-col>
+              </ion-row>
+            </ion-grid>
+       </ion-card>
+
+       <ion-card>
+         <p>Financial ratios</p>
+          <ion-grid fixed>
+              <ion-row>
+                <ion-col id="header">Liquidity</ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col id="center">Quick Ratio</ion-col>
+                <ion-col class="qR" id="amount">{{quickRatio | number:'1.2-2'}}</ion-col>
+              </ion-row>
+
+              <ion-row>
+                  <ion-col id="center">Current Ratio</ion-col>
+                  <ion-col class="cR" id="amount">{{currentRatio | number:'1.2-2'}}</ion-col>
+               </ion-row>
+
+               <ion-row>
+                 <ion-col id="header">Leverage/Safety</ion-col>
+               </ion-row>
+               <ion-row>
+                  <ion-col id="center">Debt/Equity</ion-col>
+                  <ion-col class="leverage" id="amount">{{leverage | percent:'1.2'}}</ion-col>
+                </ion-row>
+
+                <ion-row>
+                  <ion-col id="header">Profitability</ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col id="center">Return on Assets</ion-col>
+                    <ion-col class="profitability" id="amount">{{profitability | percent:'1.2'}}</ion-col>
+                  </ion-row>
+
+            <ion-row>
+                <ion-col id="header">Cashflow</ion-col>
+              </ion-row>
+              <ion-row>
+                  <ion-col id="center">Installment to Net Profit</ion-col>
+                  <ion-col class="Cashflow" id="amount">{{Cashflow | percent:'1.2'}}</ion-col>
+                </ion-row>
+          
+            <ion-row>
+                <ion-col id="header">Activity</ion-col>
+              </ion-row>
+          <ion-row>
+              <ion-col id="center">Net Profit Margin</ion-col>
+              <ion-col class="netProfitMargin" id="amount">{{netProfitMargin | number:'1.2-2'}}</ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col id="center">Inventory Turnover(days)</ion-col>
+                <ion-col class="turnover" id="amount">{{turnover | number:'1.2-2'}}</ion-col>
+              </ion-row>
+          <ion-row>
+              <ion-col id="center">Sales Margin</ion-col>
+              <ion-col class="salesMargin" id="amount">{{salesMargin | percent}}</ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col id="center">Operation Profit</ion-col>
+                <ion-col id="amount">{{operatingProfit | number:'1.0'}}</ion-col>
+              </ion-row>
+              
+          <ion-row>
+              <ion-col id="center">Net Working Capital</ion-col>
+              <ion-col id="amount">{{netWorkingCapital | number:'1.0'}}</ion-col>
+            </ion-row>
+
+        <ion-row>
+            <ion-col id="header">Characteristic with Loan</ion-col>
+          </ion-row>
+
+          <ion-row>
+              <ion-col id="center">Repayment Capacity</ion-col>
+              <ion-col class="repaymentCapacity" id="amount">{{repaymentCapacity | percent:'1.2'}}</ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col id="center">Collateral coverage</ion-col>
+                <ion-col class="collateralCoverage" id="amount">{{collateralCoverage | percent:'1.2'}}</ion-col>
+              </ion-row>
+            <ion-row>
+                <ion-col id="center">Debt Ratio</ion-col>
+                <ion-col class="debtRatio" id="amount">{{debtRatio | percent:'1.2'}}</ion-col>
+              </ion-row>
+            <ion-row>
+                <ion-col id="center">Borrower's Household Usage</ion-col>
+                <ion-col class="household" id="amount">{{household | percent:'1.2'}}</ion-col>
+              </ion-row>
+            <ion-row>
+                <ion-col id="center">Loan/Monthly Sales</ion-col>
+                <ion-col id="amount">{{loanMonthlySales | percent}}</ion-col>
+              </ion-row>
+              <ion-row>
+                  <ion-col id="center">(Liabilities and Loan)/Equity</ion-col>
+                  <ion-col id="amount">{{liabilityLoanEquity | percent}}</ion-col>
+                </ion-row>
+            <ion-row>
+                <ion-col id="center">Loan/Working Capital Ratio</ion-col>
+                <ion-col id="amount">{{loanWorkingCapital | percent}}</ion-col>
+              </ion-row>
+    
+              
+            </ion-grid>
+       </ion-card>
       </div>
 </ion-content>
 

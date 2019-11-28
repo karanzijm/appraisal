@@ -9,7 +9,7 @@
 
 <ion-content>
   <div>
-    Total:{{total}}
+    Total:{{total | number:0}}
   </div>
   <ion-card>
       <form [formGroup]="operatingExpensesForm" (ngSubmit)="submit()">

@@ -17,7 +17,7 @@
 <form [formGroup]="loanDetails" (ngSubmit)="submit()">
   <ion-item>
   <ion-label position="stacked">What Loan Amount are you applying for?</ion-label>
-  <ion-input placeholder="eg.100000" formControlName="loanAmount" type="text"></ion-input>
+  <ion-input placeholder="eg.100000" formControlName="loanAmount" type="number"></ion-input>
 </ion-item>
 <ion-item>
   <ion-label position="stacked">For how long would you like to service this loan in months?</ion-label>

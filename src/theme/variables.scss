@@ -77,11 +77,18 @@
 }
 
 #amount{
-  direction: rtl
+  direction: rtl;
+ 
 }
-p{
+p,#header{
   color:#40E0D0; 
 }
 #main{
   color:#40E0D0;
+}
+#center{
+  margin-left: 20px;
+}
+.totals{
+  color:#ffd31a;
 }
