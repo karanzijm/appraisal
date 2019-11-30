@@ -1,5 +1,20 @@
 #amount{
-   color:#000000
+   color:#000000;
+   :before {
+      content: '(';
+     :after {
+      content: ')';
+     }
+    }
+}
+
+.salesMargin {
+   :before {
+    content: '(';
+   :after {
+    content: ')';
+   }
+  }
 }
 // p{
 //     color:#40E0D0; 
@@ -7,3 +22,57 @@
 // #main{
 //     color:#40E0D0;
 // }
+table { 
+   width: 100%; 
+   border-collapse: collapse; 
+}
+
+/* Zebra striping */
+tr:nth-of-type(odd) { 
+   background: #eee; 
+}
+
+th { 
+   background:	 #006080; 
+   color: white; 
+   font-weight: bold; 
+   border: 0px ;
+}
+td { 
+   padding: 6px; 
+   border: 3px solid #e8b923; 
+   text-align: left; 
+   column-rule-color: #ff0000;
+}
+td{
+  background: #e8b923; 
+}
+table tr:first-child th {
+   border-top: 3px solid #e8b923;
+ }
+ table tr th:first-child {
+   border-left: 3px solid #e8b923;
+ }
+ table tr:last-child td {
+   border-bottom: 0;
+ }
+ table tr th:last-child {
+   border-right:3px solid #e8b923;
+ }
+   
+      /* Smartphones (portrait and landscape) ----------- */
+  @media only screen
+  and (min-width : 10px)
+  and (max-width : 480px) {
+     body {
+        padding: 0;
+        margin: 0;
+        width: 320px; }
+     }
+
+  /* iPads (portrait and landscape) ----------- */
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
+     body {
+        width: 495px;
+     }
+  }

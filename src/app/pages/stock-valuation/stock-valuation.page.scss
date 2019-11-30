@@ -1,26 +1,40 @@
 table { 
-    width: 100%; 
-    border-collapse: collapse; 
-}
-
-/* Zebra striping */
-tr:nth-of-type(odd) { 
-    background: #eee; 
-}
-
-th { 
-    background: #87ceeb; 
-    color: white; 
-    font-weight: bold; 
-}
-td, th { 
-    padding: 6px; 
-    border: 3px solid #e8b923; 
-    text-align: left; 
-}
-td{
-	background: #e8b923; 
-}
+	width: 100%; 
+	border-collapse: collapse; 
+ }
+ 
+ /* Zebra striping */
+ tr:nth-of-type(odd) { 
+	background: #eee; 
+ }
+ 
+ th { 
+	background:	 #006080; 
+	color: white; 
+	font-weight: bold; 
+	border: 0px ;
+ }
+ td { 
+	padding: 6px; 
+	border: 3px solid #e8b923; 
+	text-align: left; 
+	column-rule-color: #ff0000;
+ }
+ td{
+   background: #e8b923; 
+ }
+ table tr:first-child th {
+	border-top: 3px solid #e8b923;
+  }
+  table tr th:first-child {
+	border-left: 3px solid #e8b923;
+  }
+  table tr:last-child td {
+	border-bottom: 0;
+  }
+  table tr th:last-child {
+	border-right:3px solid #e8b923;
+  }
 
     
     	/* Smartphones (portrait and landscape) ----------- */

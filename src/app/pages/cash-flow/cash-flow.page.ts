@@ -1,14 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, PipeTransform, Pipe } from '@angular/core';
 import { ReportsService } from 'src/app/services/reports.service';
+import {AkkountingNew} from "./AkkountingNew";
+import {Akkounting} from "./Akkounting";
 
 import * as $ from 'jquery';
+
+@Pipe({
+  name: 'negToPos'
+})
 
 @Component({
   selector: 'app-cash-flow',
   templateUrl: './cash-flow.page.html',
   styleUrls: ['./cash-flow.page.scss'],
 })
-export class CashFlowPage implements OnInit {
+export class CashFlowPage implements OnInit,PipeTransform {
 testing:string;
 sales:number;
 otherBusinessIncome:number;
@@ -69,6 +75,7 @@ furniture:number;
   loanWorkingCapital:number = 0;
   collateral:number = 0;
   proposedInstallment:number=0
+  repaymentSchedule:any[]
 
 
 
@@ -80,6 +87,7 @@ furniture:number;
     $('#cashflow').hide();
     $('#balanceSheet').hide();
     $('#loanDetails').show();
+    $('#calender').hide();
 
     if(this.report.costOfSales === undefined)
           this.report.costOfSales = 0
@@ -390,7 +398,7 @@ console.log(this.household)
     $('.repaymentCapacity').css('background-color','red')
    }
 
-   
+   //this.calender()
     
 
   }
@@ -400,16 +408,47 @@ console.log(this.household)
     $('#cashflow').hide();
     $('#loanDetails').hide();
     $('#balanceSheet').show();
+    $('#calender').hide();
   }
   loanDetails(){
     $('#cashflow').hide();
     $('#balanceSheet').hide();
     $('#loanDetails').show();
+    $('#calender').hide();
   }
   cashFlow(){
     $('#cashflow').show();
     $('#balanceSheet').hide();
     $('#loanDetails').hide();
+    $('#calender').hide();
+  }
+
+  isNegitive(val: number): boolean {
+    if (val < 0) {
+      console.log("negative")
+     return true;
+    } else {
+     return false
+    }
+   }
+
+   transform(val: number): number {
+    return Math.abs(val);
+  }
+
+  calender(){
+    $('#calender').show();
+    $('#cashflow').hide();
+    $('#balanceSheet').hide();
+    $('#loanDetails').hide();
+
+    let method = "reducing_rate";
+    let number_of_payments=new Akkounting().getNoOfPaymentsOne(this.loanTerm,'Month(s)',1,'Month(s)')
+    let intRate = new Akkounting().newConvertPercentages('Month(s)',(this.loanInterest*100))
+    console.log(intRate)
+    let schedule = new AkkountingNew(this.loanAmount,intRate,number_of_payments,0,new Date(),method,"Month(s)",1)
+    this.repaymentSchedule = schedule.amortizedSchedule
+
   }
 
 }
