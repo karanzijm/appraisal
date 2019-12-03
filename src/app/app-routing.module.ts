@@ -3,7 +3,14 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
 
-  { path: '', loadChildren: './pages/menu/menu.module#MenuPageModule' },
+  { path: '', loadChildren: './pages/menu/menu.module#MenuPageModule' },  {
+    path: 'loan-appraisal',
+    loadChildren: () => import('./pages/loan-appraisal/loan-appraisal.module').then( m => m.LoanAppraisalPageModule)
+  },
+
+  
+
+ 
     
 ];
 

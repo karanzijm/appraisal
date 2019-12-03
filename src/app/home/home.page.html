@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
       <ion-buttons slot="start">
-          <ion-menu-button></ion-menu-button>
+        <ion-back-button defaultHref="/menu/landing"></ion-back-button>
         </ion-buttons>
     <ion-title>
       Loan Details
@@ -18,26 +18,69 @@
   <ion-item>
   <ion-label position="stacked">What Loan Amount are you applying for?</ion-label>
   <ion-input placeholder="eg.100000" formControlName="loanAmount" type="number"></ion-input>
+
 </ion-item>
+
+<div class="validation-errors">
+  <ng-container *ngFor="let validation of validation_messages.loanAmount">
+    <div class="error-message"
+      *ngIf="loanDetails.get('loanAmount').hasError(validation.type) && (loanDetails.get('loanAmount').dirty || loanDetails.get('loanAmount').touched)">
+      {{ validation.message }}
+    </div>
+  </ng-container>
+</div>
+
 <ion-item>
   <ion-label position="stacked">For how long would you like to service this loan in months?</ion-label>
   <ion-input placeholder="5" formControlName="period" type="number"></ion-input>
 </ion-item>
+<div class="validation-errors">
+  <ng-container *ngFor="let validation of validation_messages.period">
+    <div class="error-message"
+      *ngIf="loanDetails.get('period').hasError(validation.type) && (loanDetails.get('period').dirty || loanDetails.get('period').touched)">
+      {{ validation.message }}
+    </div>
+  </ng-container>
+</div>
 
 <ion-item>
     <ion-label position="stacked">What interest rate is the bank charging per year?</ion-label>
     <ion-input placeholder="Enter % value e.g 10" formControlName="interest" type="number"></ion-input>
   </ion-item>
+  <div class="validation-errors">
+    <ng-container *ngFor="let validation of validation_messages.interest">
+      <div class="error-message"
+        *ngIf="loanDetails.get('interest').hasError(validation.type) && (loanDetails.get('interest').dirty || loanDetails.get('interest').touched)">
+        {{ validation.message }}
+      </div>
+    </ng-container>
+  </div>
 
 <ion-item>
   <ion-label position="stacked">How much can you pay back monthly?</ion-label>
   <ion-input placeholder="30000" formControlName="installment" type="number"></ion-input>
 </ion-item>
+<div class="validation-errors">
+  <ng-container *ngFor="let validation of validation_messages.installment">
+    <div class="error-message"
+      *ngIf="loanDetails.get('installment').hasError(validation.type) && (loanDetails.get('installment').dirty || loanDetails.get('installment').touched)">
+      {{ validation.message }}
+    </div>
+  </ng-container>
+</div>
 
 <ion-item>
   <ion-label position="stacked">What is the total value of collateral/security you have pledged for the loan?</ion-label>
   <ion-input placeholder="100000" formControlName="collateral" type="number"></ion-input>
 </ion-item>
+<div class="validation-errors">
+  <ng-container *ngFor="let validation of validation_messages.collateral">
+    <div class="error-message"
+      *ngIf="loanDetails.get('collateral').hasError(validation.type) && (loanDetails.get('collateral').dirty || loanDetails.get('collateral').touched)">
+      {{ validation.message }}
+    </div>
+  </ng-container>
+</div>
 
 <ion-button color="primary" shape="round" type="submit" expand="full" fill="solid">Submit</ion-button>
 </form>

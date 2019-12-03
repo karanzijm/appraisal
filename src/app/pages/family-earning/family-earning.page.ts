@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ReportsService } from 'src/app/services/reports.service';
 import * as $ from 'jquery';
 import { FamilyEarnings } from './familyEarnings';
+import { OptionsService } from 'src/app/services/options.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-family-earning',
   templateUrl: './family-earning.page.html',
@@ -14,7 +16,7 @@ export class FamilyEarningPage implements OnInit {
   familyEarnings = new FamilyEarnings(null,null,null,null,null,null)
   
 
-  constructor(private report:ReportsService) { }
+  constructor(private report:ReportsService,private option:OptionsService,private router:Router) { }
 
   ngOnInit() {
     $('#spouse').hide();
@@ -23,6 +25,9 @@ export class FamilyEarningPage implements OnInit {
   onSubmit(){
     
     this.report.familyEarningsAmnt(this.familyEarnings)
+    this.option.add("family-earning")
+    this.router.navigate(['/menu/landing'])
+    
   }
 
   spouseCheck(){

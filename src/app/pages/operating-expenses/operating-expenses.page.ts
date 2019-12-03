@@ -3,6 +3,8 @@ import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { OtherOperatingExpensePage } from '../other-operating-expense/other-operating-expense.page';
 import { ModalController } from '@ionic/angular';
 import { ReportsService } from 'src/app/services/reports.service';
+import { OptionsService } from 'src/app/services/options.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-operating-expenses',
@@ -25,7 +27,13 @@ export class OperatingExpensesPage implements OnInit {
   loanInstallments:number
   additionalOp:number
 
-  constructor(private fb:FormBuilder,public modalController: ModalController,private report:ReportsService) { }
+  constructor(
+    private fb:FormBuilder,
+    public modalController: ModalController,
+    private report:ReportsService,
+    public option:OptionsService,
+    public router:Router
+    ) { }
 
   ngOnInit() {
     this.operatingExpensesForm = this.fb.group({
@@ -120,6 +128,8 @@ export class OperatingExpensesPage implements OnInit {
 
   submit(){
       this.report.operatingExpensesAmnt(this.total)
+      this.option.add("operating-expenses")
+    this.router.navigate(['/menu/landing'])
   }
 
 }

@@ -42,11 +42,16 @@ const routes: Routes = [
         path: 'cash-flow',
         loadChildren: () => import('../cash-flow/cash-flow.module').then( m => m.CashFlowPageModule)
       },
+      {
+        path: 'landing',
+        loadChildren: () => import('../landing/landing.module').then( m => m.LandingPageModule)
+      },
+    
     ]
   },
   {
     path: '',
-    redirectTo: '/menu/home',
+    redirectTo: '/menu/landing',
     pathMatch: 'full' 
   },
  

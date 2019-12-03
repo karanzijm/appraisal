@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { ReportsService } from 'src/app/services/reports.service';
+import { OptionsService } from 'src/app/services/options.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-business-financial',
@@ -21,7 +23,12 @@ export class BusinessFinancialPage implements OnInit {
   debtsOver3:number;
   total:number;
   bank:number;
-  constructor(private fb:FormBuilder,private report:ReportsService) { }
+  constructor(
+    private fb:FormBuilder,
+    private report:ReportsService,
+    private option:OptionsService,
+    private router:Router
+    ) { }
 
   ngOnInit() {
     this.businessForm = this.fb.group({
@@ -91,6 +98,8 @@ export class BusinessFinancialPage implements OnInit {
 
   submit(){
        this.report.businessFinancialAmnt(this.total,this.businessForm.value)
+       this.option.add("business-financial")
+       this.router.navigate(['/menu/landing'])
   }
 
 }

@@ -3,6 +3,8 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { ReportsService } from 'src/app/services/reports.service';
 import { ModalController } from '@ionic/angular';
 import { OtherFamilyExpensePage } from '../other-family-expense/other-family-expense.page';
+import { OptionsService } from 'src/app/services/options.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-family-expenses',
@@ -28,7 +30,11 @@ export class FamilyExpensesPage implements OnInit {
   cookingFuel:number;
   food:number
 
-  constructor(private report:ReportsService,public modalController: ModalController) { }
+  constructor(
+    private report:ReportsService,
+    public modalController: ModalController, 
+    public option:OptionsService,
+    public router:Router) { }
 
   ngOnInit() {
     this.familyExpenseForm = new FormGroup({
@@ -48,6 +54,8 @@ export class FamilyExpensesPage implements OnInit {
 
   submit(){
     this.report.familyExpensesAmnt(this.total)
+    this.option.add("family-expenses")
+    this.router.navigate(['/menu/landing'])
   }
 
   getModal(){

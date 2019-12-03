@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { ReportsService } from 'src/app/services/reports.service';
+import { OptionsService } from 'src/app/services/options.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-daily-sales-metrics',
@@ -35,7 +37,12 @@ export class DailySalesMetricsPage implements OnInit {
 
 
   
-  constructor(private fb:FormBuilder,private report:ReportsService) { }
+  constructor(
+    private fb:FormBuilder,
+    private report:ReportsService,
+    private option:OptionsService,
+    private router:Router
+    ) { }
 
   ngOnInit() {
     this.salesForm = this.fb.group({
@@ -109,6 +116,8 @@ export class DailySalesMetricsPage implements OnInit {
   submit(){
    // console.log(this.salesForm.value)
     this.report.dailySalesMetricsAmnt(this.salesForm.value,this.total);
+    this.option.add("daily-sales-metrics")
+       this.router.navigate(['/menu/landing'])
   }
 
 }

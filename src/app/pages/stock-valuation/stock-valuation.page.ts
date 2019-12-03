@@ -2,6 +2,7 @@ import { Component, OnInit, ɵConsole, ChangeDetectorRef } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { AddStockPage } from '../add-stock/add-stock.page';
 import { ReportsService } from 'src/app/services/reports.service';
+import { OptionsService } from 'src/app/services/options.service';
 
 
 
@@ -16,7 +17,9 @@ tableStyle = 'bootstrap';
 dataReturned:any;
 product:any[]=[];
   constructor(public modalController: ModalController,
-    private report: ReportsService) { }
+    private report: ReportsService,
+    private option:OptionsService
+    ) { }
   
   ngOnInit() {
    
@@ -53,6 +56,7 @@ product:any[]=[];
         console.log(stock+" "+margin)
         this.product.push(dataReturned.data)
         this.report.stockValuationAmnt(this.product)
+        this.option.add("stock-valuation")
         
      
       }
