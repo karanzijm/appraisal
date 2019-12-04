@@ -49,7 +49,7 @@ export class LandingPage implements OnInit {
   }
 
   view(){
-
+    this.router.navigate(['/menu/cash-flow'])
   }
 
   delete(){

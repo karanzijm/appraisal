@@ -49,54 +49,58 @@ export class OperatingExpensesPage implements OnInit {
     })
   }
   totalExpense(){
-    this.total = 0
-    this.additionalOp = 0
-        this.rent = this.operatingExpensesForm.controls['rent'].value
-        this.transportToBusiness = this.operatingExpensesForm.controls['transportToBusiness'].value
-        this.transportForStock = this.operatingExpensesForm.controls['transportForStock'].value
-        this.communication = this.operatingExpensesForm.controls['communication'].value
-        this.salaries =  this.operatingExpensesForm.controls['salaries'].value
-        this.utilityBill = this.operatingExpensesForm.controls['utilityBill'].value
-        this.fees = this.operatingExpensesForm.controls['fees'].value
-        this.loanInstallments = this.operatingExpensesForm.controls['loanInstallments'].value
 
-        if(this.expenseList && this.expenseList.length>0){
-          this.expenseList.forEach(obj=>{
-            this.additionalOp +=obj.amount 
-          })
-       
-
-        }else{
-          console.log("o")
-
-          this.additionalOp = 0
-        }
-        if(this.rent===null)
-        this.rent = 0
-
-        if(this.transportToBusiness===null)
-          this.transportToBusiness = 0
-
-         if(this.transportForStock===null) 
-         this.transportForStock = 0
-
-         if(this.communication===null)
-         this.communication = 0
-
-         if(this.salaries===null)
-         this.salaries = 0
-
-         if(this.utilityBill===null)
-         this.utilityBill = 0
-
-         if(this.fees===null)
-         this.fees = 0
-
-         if(this.loanInstallments===null)
-         this.loanInstallments = 0
-
-         this.total = this.rent + this.transportToBusiness + this.transportForStock + this.communication +
-            this.salaries + this.utilityBill + this.fees + this.loanInstallments + this.additionalOp
+    setTimeout(() => {
+      this.total = 0
+      this.additionalOp = 0
+          this.rent = this.operatingExpensesForm.controls['rent'].value
+          this.transportToBusiness = this.operatingExpensesForm.controls['transportToBusiness'].value
+          this.transportForStock = this.operatingExpensesForm.controls['transportForStock'].value
+          this.communication = this.operatingExpensesForm.controls['communication'].value
+          this.salaries =  this.operatingExpensesForm.controls['salaries'].value
+          this.utilityBill = this.operatingExpensesForm.controls['utilityBill'].value
+          this.fees = this.operatingExpensesForm.controls['fees'].value
+          this.loanInstallments = this.operatingExpensesForm.controls['loanInstallments'].value
+  
+          if(this.expenseList && this.expenseList.length>0){
+            this.expenseList.forEach(obj=>{
+              this.additionalOp +=obj.amount 
+            })
+         
+  
+          }else{
+            console.log("o")
+  
+            this.additionalOp = 0
+          }
+          if(this.rent===null)
+          this.rent = 0
+  
+          if(this.transportToBusiness===null)
+            this.transportToBusiness = 0
+  
+           if(this.transportForStock===null) 
+           this.transportForStock = 0
+  
+           if(this.communication===null)
+           this.communication = 0
+  
+           if(this.salaries===null)
+           this.salaries = 0
+  
+           if(this.utilityBill===null)
+           this.utilityBill = 0
+  
+           if(this.fees===null)
+           this.fees = 0
+  
+           if(this.loanInstallments===null)
+           this.loanInstallments = 0
+  
+           this.total = this.rent + this.transportToBusiness + this.transportForStock + this.communication +
+              this.salaries + this.utilityBill + this.fees + this.loanInstallments + this.additionalOp
+    },100);
+    
   }
 
   getModal(){

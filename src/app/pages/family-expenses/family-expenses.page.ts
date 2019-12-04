@@ -84,70 +84,71 @@ export class FamilyExpensesPage implements OnInit {
   }
 
   totalExpense(){
-    this.total = 0;
-    this.additionalExpense = 0
-
-    this.rent = this.familyExpenseForm.controls['rent'].value
-    if(this.rent === null)
-        this.rent = 0
-
-    this.food = this.familyExpenseForm.controls['food'].value
-    if(this.food === null)
-       this.food = 0
-
-    this.transportation = this.familyExpenseForm.controls['transportation'].value
-    if(this.transportation === null)
-       this.transportation = 0
-
-    this.cookingFuel = this.familyExpenseForm.controls['cookingFuel'].value
-    if(this.cookingFuel === null)
-       this.cookingFuel = 0
-
-    this.telephone =  this.familyExpenseForm.controls['telephone'].value
-      if(this.telephone === null)
-        this.telephone = 0
-
-    this.clothing = this.familyExpenseForm.controls['clothing'].value
-     if(this.clothing == null)
-        this.clothing = 0
-
-    this.education = this.familyExpenseForm.controls['education'].value
-     if(this.education === null)
-     this.education = 0
-
-    this.medication = this.familyExpenseForm.controls['medication'].value
-    if(this.medication === null)
-    this.medication = 0
-
-    this.utilities = this.familyExpenseForm.controls['utilities'].value
-     if(this.utilities === null)
-     this.utilities  = 0
-
-    this.entertainment = this.familyExpenseForm.controls['entertainment'].value
-      if(this.utilities === null)
-      this.utilities  = 0
-
-    this.salary = this.familyExpenseForm.controls['salary'].value
-     if(this.salary === null)
-     this.salary = 0
-
-     if(this.expenseList && this.expenseList.length>0){
-      this.expenseList.forEach(obj=>{
-        this.additionalExpense +=obj.amount 
-      })
-   
-
-    }else{
-      console.log("o")
-
+    setTimeout(() => {
+      this.total = 0;
       this.additionalExpense = 0
-    }
-
-     this.total = this.rent + this.food + this.transportation + this.cookingFuel + this.telephone + this.additionalExpense +
-                  this.clothing + this.education + this.medication + this.utilities + this.entertainment + this.salary
-
+  
+      this.rent = this.familyExpenseForm.controls['rent'].value
+      if(this.rent === null)
+          this.rent = 0
+  
+      this.food = this.familyExpenseForm.controls['food'].value
+      if(this.food === null)
+         this.food = 0
+  
+      this.transportation = this.familyExpenseForm.controls['transportation'].value
+      if(this.transportation === null)
+         this.transportation = 0
+  
+      this.cookingFuel = this.familyExpenseForm.controls['cookingFuel'].value
+      if(this.cookingFuel === null)
+         this.cookingFuel = 0
+  
+      this.telephone =  this.familyExpenseForm.controls['telephone'].value
+        if(this.telephone === null)
+          this.telephone = 0
+  
+      this.clothing = this.familyExpenseForm.controls['clothing'].value
+       if(this.clothing == null)
+          this.clothing = 0
+  
+      this.education = this.familyExpenseForm.controls['education'].value
+       if(this.education === null)
+       this.education = 0
+  
+      this.medication = this.familyExpenseForm.controls['medication'].value
+      if(this.medication === null)
+      this.medication = 0
+  
+      this.utilities = this.familyExpenseForm.controls['utilities'].value
+       if(this.utilities === null)
+       this.utilities  = 0
+  
+      this.entertainment = this.familyExpenseForm.controls['entertainment'].value
+        if(this.utilities === null)
+        this.utilities  = 0
+  
+      this.salary = this.familyExpenseForm.controls['salary'].value
+       if(this.salary === null)
+       this.salary = 0
+  
+       if(this.expenseList && this.expenseList.length>0){
+        this.expenseList.forEach(obj=>{
+          this.additionalExpense +=obj.amount 
+        })
+     
+  
+      }else{
+        this.additionalExpense = 0
+      }
+  
+       this.total = this.rent + this.food + this.transportation + this.cookingFuel + this.telephone + this.additionalExpense +
+                    this.clothing + this.education + this.medication + this.utilities + this.entertainment + this.salary
+  
+     
+  
+    },100);
    
-
   }
 
 }
