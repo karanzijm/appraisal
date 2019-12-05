@@ -36,6 +36,16 @@ export class ReportsService {
   sales:number=0
   collateral:number=0
   proposedInstallment:number=0
+  spouseMonthlySales: number=0;
+  spouseFixedAssets: number=0;
+  spouseMonthlyPurchases: number=0;
+  stockValue: number=0;
+  operationalExpenses: number=0;
+  spouseOperationalExpenses: number = 0;
+  spouseOutflow: number = 0;
+  spouseSurplus: number;
+  otherBusinessIncome: number = 0;
+  
   
 
   constructor() { }
@@ -54,11 +64,18 @@ export class ReportsService {
   familyEarningsAmnt(value){
     console.log("familyEarningsAmnt "+JSON.stringify(value))
     this.familyEarnings = value;
-    this.spouseInflow = value.monthlySales;
-    this.spouseCash = value.cash
+    
+    this.spouseCash = value.cash;
+    this.spouseMonthlySales = value.monthlySales;
+    this.spouseFixedAssets = value.fixedAssets;
+    this.spouseMonthlyPurchases = value.monthlyPurchases;
+    this.stockValue  = value.stockValue;
+    this.spouseOperationalExpenses = value.operationalExpenses
 
-    //let interest = (())
-  // this.installment =
+    this.spouseInflow = this.spouseCash + this.spouseMonthlySales;
+    this.spouseOutflow = this.spouseMonthlyPurchases + this.spouseOperationalExpenses;
+    this.spouseSurplus = this.spouseInflow - this.spouseOutflow;
+
   }
   familyExpensesAmnt(value){
     this.familyExpenses = value;
@@ -129,6 +146,9 @@ export class ReportsService {
     if(form.debtors === null)
       form.debtors = 0
       
+    if(form.netEarning === null)
+        form.netEarning = 0
+      
        /** Current Assets */
     this.totalCash = form.cash
     this.bankCash = form.bank
@@ -146,6 +166,9 @@ export class ReportsService {
 
      /**Long term liabilities */
      this.longTermDebt = form.debtsOver3
+
+     /**Other business income */
+     this.otherBusinessIncome = form.netEarning
 
 
   }

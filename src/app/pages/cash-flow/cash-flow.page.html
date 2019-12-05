@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
       <ion-buttons slot="start">
-          <ion-menu-button></ion-menu-button>
+        <ion-back-button defaultHref="/menu/landing"></ion-back-button>
         </ion-buttons>
     <ion-title>Report</ion-title>
   </ion-toolbar>
@@ -10,17 +10,16 @@
 <ion-content scrollX="true">
     <ion-segment value="loanDetails">
         <ion-segment-button value="loanDetails" color="primary" (ionSelect)="loanDetails()" checked>
-            <ion-label>Loan Details</ion-label>
+          <ion-icon name="home"></ion-icon>
         </ion-segment-button>
         <ion-segment-button value="balanceSheet" (ionSelect)="balanceSheet()">
-          <ion-label>Balance Sheet</ion-label>
+          <ion-icon name="calculator"></ion-icon>
         </ion-segment-button>
         <ion-segment-button value="cashFlow" (ionSelect)="cashFlow()">
-          <ion-label>Cash Flow</ion-label>
-        </ion-segment-button>
-
+          <ion-icon name="cash"></ion-icon>
+        </ion-segment-button>        
         <ion-segment-button value="calender" (ionSelect)="calender()">
-            <ion-label>Ammortization</ion-label>
+          <ion-icon name="calendar"></ion-icon>
           </ion-segment-button>
       </ion-segment>
 
@@ -364,8 +363,8 @@
     <table>
       <thead>
           <tr>
-              <th>Month</th>
-              <th>Date</th>
+              <th>#</th>
+              
               <th>Opening Balance</th>
               <th>Interest Payable</th>
               <th>Principal Payable</th>
@@ -378,7 +377,7 @@
           <tr *ngFor="let repaymentCycle of repaymentSchedule">
 
               <td>{{ repaymentCycle.number}}</td>
-                            <td>{{repaymentCycle.startDate | date:'dd-MM-yyyy'}}</td>
+                           
                             <td>{{ repaymentCycle.openingbal | number:'1.0-0'}}</td>
                             <td>{{ repaymentCycle.intpayable | number:'1.0-0'}}</td>
                             <td>{{ repaymentCycle.prinpayable | number:'1.0-0'}}</td>

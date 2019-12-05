@@ -149,7 +149,10 @@ furniture:number;
             this.report.collateral = 0;
 
         if(this.report.proposedInstallment === undefined)
-            this.report.proposedInstallment
+            this.report.proposedInstallment = 0
+
+        if(this.report.spouseSurplus === undefined)
+        this.report.spouseSurplus = 0
 
       this.collateral = this.report.collateral
       this.proposedInstallment = this.report.proposedInstallment
@@ -261,7 +264,8 @@ furniture:number;
    console.log("cost of sales "+this.costOfSales)
 
 
-   this.familyEarning = this.report.spouseInflow;
+   this.familyEarning = this.report.spouseSurplus;
+   this.otherBusinessIncome = this.report.otherBusinessIncome
 
  
    this.sales= this.report.sales;
