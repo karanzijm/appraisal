@@ -133,7 +133,10 @@ export class OperatingExpensesPage implements OnInit {
   submit(){
       this.report.operatingExpensesAmnt(this.total)
       this.option.add("operating-expenses")
-    this.router.navigate(['/menu/landing'])
+    
+  }
+  redirect(){
+    this.router.navigate(['/menu/business-financial'])
   }
 
 }

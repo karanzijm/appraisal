@@ -45,6 +45,8 @@ export class ReportsService {
   spouseOutflow: number = 0;
   spouseSurplus: number;
   otherBusinessIncome: number = 0;
+  loanFrequency: any;
+  interestMethod: any;
   
   
 
@@ -59,7 +61,9 @@ export class ReportsService {
     this.installment = this.loanAmount*(((this.loanInterest*(Math.pow((1+this.loanInterest),this.loanTerm))))/((Math.pow((1+this.loanInterest),this.loanTerm))-1))
     console.log(this.installment)
     this.collateral = value.collateral;
-    this.proposedInstallment = value.installment
+    this.proposedInstallment = value.installment;
+    this.loanFrequency = value.frequency;
+    this.interestMethod = value.interestMethod;
   }
   familyEarningsAmnt(value){
     console.log("familyEarningsAmnt "+JSON.stringify(value))

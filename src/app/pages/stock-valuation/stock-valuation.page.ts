@@ -3,6 +3,7 @@ import { ModalController } from '@ionic/angular';
 import { AddStockPage } from '../add-stock/add-stock.page';
 import { ReportsService } from 'src/app/services/reports.service';
 import { OptionsService } from 'src/app/services/options.service';
+import { Router } from '@angular/router';
 
 
 
@@ -18,7 +19,8 @@ dataReturned:any;
 product:any[]=[];
   constructor(public modalController: ModalController,
     private report: ReportsService,
-    private option:OptionsService
+    private option:OptionsService,
+    public router:Router
     ) { }
   
   ngOnInit() {
@@ -56,7 +58,7 @@ product:any[]=[];
         console.log(stock+" "+margin)
         this.product.push(dataReturned.data)
         this.report.stockValuationAmnt(this.product)
-        this.option.add("stock-valuation")
+       // this.option.add("stock-valuation")
         
      
       }
@@ -66,6 +68,10 @@ product:any[]=[];
 
     return await modal.present();
 
+  }
+
+  redirect(){
+    this.router.navigate(['/menu/daily-sales-metrics'])
   }
 
 

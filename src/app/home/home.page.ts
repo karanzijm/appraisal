@@ -12,7 +12,7 @@ import { ToastController } from '@ionic/angular';
 })
 export class HomePage implements OnInit {
 
-
+disabled:boolean = true
  loanDetails:FormGroup;
  validation_messages = {
   'loanAmount': [
@@ -27,10 +27,12 @@ export class HomePage implements OnInit {
   'interest': [
     { type: 'required', message: 'Loan Interest is required.' },
     { type: 'min', message: 'The minimum loan interest is 0.' },
+    { type: 'max', message: 'The maximum loan Installment is 100%.'}
   ],
   'installment': [
     { type: 'required', message: 'Loan Installment is required.' },
-    { type: 'min', message: 'The minimum loan Installment is 0.' },
+    { type: 'min', message: 'The minimum loan Installment is 0.' }
+    
   ],
  }
 
@@ -42,15 +44,21 @@ export class HomePage implements OnInit {
     ) {}
 
   ngOnInit(){
+    
     this.loanDetails = new FormGroup({
       loanAmount:new FormControl('',[Validators.required,Validators.min(0)]),
       period:new FormControl('',[Validators.required,Validators.min(1)]),
       periodUnit:new FormControl('',[]),
       installment:new FormControl('',[Validators.required,Validators.min(0)]),
       collateral:new FormControl('',[Validators.required,Validators.min(0)]),
-      interest:new FormControl('',[Validators.required,Validators.min(0),Validators.max(100)])
+      interest:new FormControl('',[Validators.required,Validators.min(0),Validators.max(100)]),
+      frequency:new FormControl(),
+      interestMethod:new FormControl()
 
     })
+    this.loanDetails.controls['frequency'].setValue('Day(s)')
+    this.loanDetails.controls['interestMethod'].setValue('flat_rate')
+
 
   }
 
@@ -59,7 +67,8 @@ export class HomePage implements OnInit {
     if(this.loanDetails.valid){
       this.report.loanDetailsAmnt(this.loanDetails.value)    
       this.option.add("home")
-      this.router.navigate(['/menu/landing'])
+      this.disabled = false
+   
 
     }
     else{
@@ -68,6 +77,10 @@ export class HomePage implements OnInit {
     }
    
     
+  }
+
+  redirect(){
+    this.router.navigate(['/menu/family-earning'])
   }
 
   async presentToast(message) {

@@ -446,11 +446,11 @@ console.log(this.household)
     $('#balanceSheet').hide();
     $('#loanDetails').hide();
 
-    let method = "reducing_rate";
-    let number_of_payments=new Akkounting().getNoOfPaymentsOne(this.loanTerm,'Month(s)',1,'Month(s)')
-    let intRate = new Akkounting().newConvertPercentages('Month(s)',(this.loanInterest*100))
+    let method = this.report.interestMethod;
+    let number_of_payments=new Akkounting().getNoOfPaymentsOne(this.loanTerm,this.report.loanFrequency,1,this.report.loanFrequency)
+    let intRate = new Akkounting().newConvertPercentages(this.report.loanFrequency,(this.loanInterest*100))
     console.log(intRate)
-    let schedule = new AkkountingNew(this.loanAmount,intRate,number_of_payments,0,new Date(),method,"Month(s)",1)
+    let schedule = new AkkountingNew(this.loanAmount,intRate,number_of_payments,0,new Date(),method,this.report.loanFrequency,1)
     this.repaymentSchedule = schedule.amortizedSchedule
 
   }

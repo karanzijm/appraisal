@@ -31,6 +31,7 @@ export class BusinessFinancialPage implements OnInit {
     ) { }
 
   ngOnInit() {
+    
     this.businessForm = this.fb.group({
       netEarning:new FormControl(),
       cash:new FormControl(),
@@ -55,8 +56,6 @@ export class BusinessFinancialPage implements OnInit {
       this.netEarning = this.businessForm.controls['netEarning'].value
           if(this.netEarning===null)
           this.netEarning=0
-
-        console.log(this.businessForm.value)
 
         this.cash = this.businessForm.controls['cash'].value
         if(this.cash===null)
@@ -105,10 +104,13 @@ export class BusinessFinancialPage implements OnInit {
   }
 
   submit(){
-    console.log(this.businessForm.value)
+    
        this.report.businessFinancialAmnt(this.total,this.businessForm.value)
        this.option.add("business-financial")
-       this.router.navigate(['/menu/landing'])
+      // this.router.navigate(['/menu/landing'])
+  }
+  redirect(){
+    this.router.navigate(['/menu/cash-flow'])
   }
 
 }

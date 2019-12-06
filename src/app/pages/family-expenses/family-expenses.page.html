@@ -31,7 +31,7 @@
     </ion-item>
     
     <ion-item>
-      <ion-input formControlName="telephone" placeholder="Telephone" type="number" (keyup)="totalExpense()"></ion-input>
+      <ion-input formControlName="telephone" placeholder="Telephone(Airtime,Messsages)" type="number" (keyup)="totalExpense()"></ion-input>
     </ion-item>
     
     <ion-item>
@@ -64,11 +64,15 @@
             <ion-input type="text" readonly>{{item.amount}}</ion-input>
         </ion-item>
       </div>
-    
-    <ion-button (click)="getModal()" color="tertiary" shape="round" expand="full" fill="solid">
-        <ion-icon slot="end" name="add"></ion-icon>
-      Add Family Expense</ion-button>
-    <ion-button color="primary" shape="round" type="submit" expand="full" fill="solid">Submit</ion-button>
+      <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button (click)="getModal()">
+          <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+   
+    <ion-button color="primary" type="submit" fill="solid">Submit</ion-button>
+    <ion-button (click)="redirect()" color="success" fill="solid"><ion-icon slot="end" name="arrow-forward"></ion-icon>Next</ion-button>
+
     </form>
   </ion-card>
     

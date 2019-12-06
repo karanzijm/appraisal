@@ -16,7 +16,7 @@
 <p>Loan Details</p>
 <form [formGroup]="loanDetails" (ngSubmit)="submit()">
   <ion-item>
-  <ion-label position="stacked">What Loan Amount are you applying for?</ion-label>
+  <ion-label class="ion-text-wrap" position="stacked">What Loan Amount are you applying for?</ion-label>
   <ion-input placeholder="eg.100000" formControlName="loanAmount" type="number"></ion-input>
 
 </ion-item>
@@ -31,7 +31,8 @@
 </div>
 
 <ion-item>
-  <ion-label position="stacked">For how long would you like to service this loan in months?</ion-label>
+
+  <ion-label class="ion-text-wrap" position="stacked">For how long would you like to service this loan in months?</ion-label>
   <ion-input placeholder="5" formControlName="period" type="number"></ion-input>
 </ion-item>
 <div class="validation-errors">
@@ -44,7 +45,28 @@
 </div>
 
 <ion-item>
-    <ion-label position="stacked">What interest rate is the bank charging per year?</ion-label>
+
+  <ion-label class="ion-text-wrap" position="stacked">Frequency of Payment?</ion-label>
+  <ion-select formControlName="frequency" okText="Okay" cancelText="Dismiss">
+      <ion-select-option value="Day(s)">Day(s)</ion-select-option>
+      <ion-select-option value="Weeks(s)">Weeks(s)</ion-select-option>
+      <ion-select-option value="Month(s)">Month(s)</ion-select-option>
+      <ion-select-option value="Year(s)">Year(s)</ion-select-option>
+    </ion-select>
+</ion-item>
+
+<ion-item>
+
+    <ion-label class="ion-text-wrap" position="stacked">Interest Method?</ion-label>
+    <ion-select formControlName="interestMethod" okText="Okay" cancelText="Dismiss">
+        <ion-select-option value="flat_rate">Flat Rate</ion-select-option>
+        <ion-select-option value="reducing_rate">Reducing Balance</ion-select-option>
+       
+      </ion-select>
+  </ion-item>
+
+<ion-item>
+    <ion-label class="ion-text-wrap" position="stacked">What interest rate is the bank charging per year?</ion-label>
     <ion-input placeholder="Enter % value e.g 10" formControlName="interest" type="number"></ion-input>
   </ion-item>
   <div class="validation-errors">
@@ -57,7 +79,7 @@
   </div>
 
 <ion-item>
-  <ion-label position="stacked">How much can you pay back monthly?</ion-label>
+  <ion-label class="ion-text-wrap" position="stacked">How much can you pay back monthly?</ion-label>
   <ion-input placeholder="30000" formControlName="installment" type="number"></ion-input>
 </ion-item>
 <div class="validation-errors">
@@ -70,7 +92,7 @@
 </div>
 
 <ion-item>
-  <ion-label position="stacked">What is the total value of collateral/security you have pledged for the loan?</ion-label>
+  <ion-label class="ion-text-wrap" position="stacked">What is the total value of collateral/security you have pledged for the loan?</ion-label>
   <ion-input placeholder="100000" formControlName="collateral" type="number"></ion-input>
 </ion-item>
 <div class="validation-errors">
@@ -82,9 +104,10 @@
   </ng-container>
 </div>
 
-<ion-button color="primary" shape="round" type="submit" expand="full" fill="solid">Submit</ion-button>
+<ion-button color="primary" type="submit" fill="solid">Submit</ion-button>
+<ion-button (click)="redirect()" [disabled]="disabled" color="success" fill="solid"><ion-icon slot="end" name="arrow-forward"></ion-icon>Next</ion-button>
+
 </form>
 
 </ion-card>
-<ion-button [routerLink]="['/stock-valuation']" routerLinkActive="router-link-active" >Stock</ion-button>
 </ion-content>

@@ -55,7 +55,10 @@ export class FamilyExpensesPage implements OnInit {
   submit(){
     this.report.familyExpensesAmnt(this.total)
     this.option.add("family-expenses")
-    this.router.navigate(['/menu/landing'])
+    
+  }
+  redirect(){
+    this.router.navigate(['/menu/stock-valuation'])
   }
 
   getModal(){

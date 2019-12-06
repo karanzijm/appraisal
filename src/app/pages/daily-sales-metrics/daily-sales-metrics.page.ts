@@ -121,7 +121,11 @@ export class DailySalesMetricsPage implements OnInit {
    // console.log(this.salesForm.value)
     this.report.dailySalesMetricsAmnt(this.salesForm.value,this.total);
     this.option.add("daily-sales-metrics")
-       this.router.navigate(['/menu/landing'])
+       
+  }
+
+  redirect(){
+    this.router.navigate(['/menu/operating-expenses'])
   }
 
 }

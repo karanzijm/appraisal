@@ -9,31 +9,29 @@
   <form #stockForm="ngForm" (ngSubmit)="addStock()" novalidate>
   <ion-item>
     <ion-label position="stacked">Product/Item</ion-label>
-    <ion-input name="productName" [(ngModel)]="stock.productName" type="text"></ion-input>
+    <ion-input placeholder="Battery" name="productName" [(ngModel)]="stock.productName" type="text"></ion-input>
   </ion-item>
 
   <ion-item>
       <ion-label position="stacked">Quantity</ion-label>
-      <ion-input name="quantity" [(ngModel)]="stock.quantity" type="number"></ion-input>
+      <ion-input placeholder="10" name="quantity" [(ngModel)]="stock.quantity" type="number"></ion-input>
     </ion-item>
 
     <ion-item>
         <ion-label position="stacked">How much did you buy each at?</ion-label>
-        <ion-input name="cost" [(ngModel)]="stock.cost" type="number"></ion-input>
+        <ion-input placeholder="2000" name="cost" [(ngModel)]="stock.cost" type="number"></ion-input>
       </ion-item>
 
       <ion-item>
           <ion-label position="stacked">How much did you sell each at?</ion-label>
-          <ion-input name="price" [(ngModel)]="stock.price" type="number"></ion-input>
+          <ion-input placeholder="40000" name="price" [(ngModel)]="stock.price" type="number"></ion-input>
       </ion-item>
+   
+     
+        <ion-button color="danger" (click)="dismiss()">Cancel</ion-button>
+      
 
-      <ion-buttons>
-          <ion-button (click)="dismiss()">Cancel</ion-button>
-        </ion-buttons>
-
-        
-      <ion-buttons>
-          <ion-button type="submit">Add</ion-button>
-        </ion-buttons>
+        <ion-button color="primary" type="submit">Add</ion-button>
+   
       </form>  
 </ion-content>
