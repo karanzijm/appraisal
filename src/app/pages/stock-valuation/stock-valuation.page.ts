@@ -53,7 +53,10 @@ product:any[]=[];
       if (dataReturned.data !== undefined) {
         console.log(dataReturned.data)
         let arr =dataReturned.data
-        arr.foreach(obj=>{
+        for(var i=0;i<arr.length;i++){
+          console.log(arr[i])
+        }
+        arr.forEach(obj=>{
           let stock = obj.quantity * obj.cost
           let margin =((((obj.price * obj.quantity)-(obj.cost * obj.quantity))*100)/(obj.price * obj.quantity))
           obj.stock = stock
