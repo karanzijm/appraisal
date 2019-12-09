@@ -50,14 +50,19 @@ product:any[]=[];
     });
 
     modal.onDidDismiss().then((dataReturned) => {
-      if (dataReturned !== null) {
-        let stock = dataReturned.data.quantity * dataReturned.data.cost
-        let margin =((((dataReturned.data.price * dataReturned.data.quantity)-(dataReturned.data.cost * dataReturned.data.quantity))*100)/(dataReturned.data.price * dataReturned.data.quantity))
-        dataReturned.data.stock = stock
-        dataReturned.data.margin = margin
-        console.log(stock+" "+margin)
-        this.product.push(dataReturned.data)
-        this.report.stockValuationAmnt(this.product)
+      if (dataReturned.data !== undefined) {
+        console.log(dataReturned.data)
+        let arr =dataReturned.data
+        arr.foreach(obj=>{
+          let stock = obj.quantity * obj.cost
+          let margin =((((obj.price * obj.quantity)-(obj.cost * obj.quantity))*100)/(obj.price * obj.quantity))
+          obj.stock = stock
+          obj.margin = margin
+          console.log(stock+" "+margin)
+          this.product.push(obj)
+          this.report.stockValuationAmnt(this.product)
+        })
+        
        // this.option.add("stock-valuation")
         
      

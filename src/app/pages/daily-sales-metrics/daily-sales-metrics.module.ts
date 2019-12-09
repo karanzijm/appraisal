@@ -8,13 +8,17 @@ import { DailySalesMetricsPageRoutingModule } from './daily-sales-metrics-routin
 
 import { DailySalesMetricsPage } from './daily-sales-metrics.page';
 
+import { DailyAveragesPageModule } from '../daily-averages/daily-averages.module';
+
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     DailySalesMetricsPageRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DailyAveragesPageModule
   ],
   declarations: [DailySalesMetricsPage]
 })

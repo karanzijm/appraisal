@@ -15,6 +15,8 @@ export class AddStockPage implements OnInit {
   cost:number;
   price:number;
 
+  stockArr:any[]=[]
+
   stock=new Stock(null,null,null,null);
 
   constructor(private modalCtrl: ModalController) { }
@@ -29,7 +31,17 @@ export class AddStockPage implements OnInit {
   addStock(){
     
     console.log(this.stock)
-    this.modalCtrl.dismiss(this.stock);
+    this.stockArr.push(this.stock)
+    this.stock=new Stock(null,null,null,null)
+    
+    console.log(this.stockArr)
+    
+  }
+
+  save(){
+    
+    this.stockArr.push(this.stock)
+    this.modalCtrl.dismiss(this.stockArr);
   }
 
 }

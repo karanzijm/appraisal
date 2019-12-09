@@ -3,6 +3,8 @@ import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { ReportsService } from 'src/app/services/reports.service';
 import { OptionsService } from 'src/app/services/options.service';
 import { Router } from '@angular/router';
+import { DailyAveragesPage } from '../daily-averages/daily-averages.page';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-daily-sales-metrics',
@@ -31,6 +33,10 @@ export class DailySalesMetricsPage implements OnInit {
   saturdaySales:any
   sundayRate:any
   sundaySales:any
+  goodDay: number;
+  normalDay: number;
+  badDay: number;
+
   
 
 
@@ -41,10 +47,13 @@ export class DailySalesMetricsPage implements OnInit {
     private fb:FormBuilder,
     private report:ReportsService,
     private option:OptionsService,
-    private router:Router
+    private router:Router,
+    public modalController: ModalController
     ) { }
 
   ngOnInit() {
+    this.presentModal()
+
     this.salesForm = this.fb.group({
      
       monday:new FormControl('Monday'),
@@ -71,11 +80,136 @@ export class DailySalesMetricsPage implements OnInit {
       day1:new FormControl(), 
       day2:new FormControl(), 
       day3:new FormControl(), 
+     
     })
 
     this.salesForm.controls['day1'].setValue("Monday")
     this.salesForm.controls['day2'].setValue("Monday")
     this.salesForm.controls['day3'].setValue("Monday")
+
+  }
+
+  async presentModal() {
+    let controller = this;
+    const modal = await this.modalController.create({
+      component: DailyAveragesPage
+    });
+
+    modal.onDidDismiss().then((dataReturned) => {
+     
+      if (dataReturned.data !== undefined) {
+        console.log(dataReturned.data)
+        this.goodDay = dataReturned.data.goodDay
+        this.normalDay = dataReturned.data.normalDay
+        this.badDay = dataReturned.data.badDay
+        
+      }})
+
+      return await modal.present();
+  
+  }
+  selectedMonday(event){
+  
+    let value = event.detail.value
+
+    if(value==="G")
+      this.salesForm.controls['mondaySales'].setValue(this.goodDay)
+
+    else if(value==="N")
+     this.salesForm.controls['mondaySales'].setValue(this.normalDay)
+
+    else if(value==="B") 
+      this.salesForm.controls['mondaySales'].setValue(this.badDay)
+
+
+    // setTimeout(() => {
+    //   console.log(this.salesForm.controls['mondayRate'].value)
+    // },100)
+  }
+  selectedTuesday(event){
+  
+    let value = event.detail.value
+
+    if(value==="G")
+      this.salesForm.controls['tuesdaySales'].setValue(this.goodDay)
+
+    else if(value==="N")
+     this.salesForm.controls['tuesdaySales'].setValue(this.normalDay)
+
+    else if(value==="B") 
+      this.salesForm.controls['tuesdaySales'].setValue(this.badDay)
+
+
+  }
+
+  selectedWednesday(event){
+    let value = event.detail.value
+
+    if(value==="G")
+      this.salesForm.controls['wednesdaySales'].setValue(this.goodDay)
+
+    else if(value==="N")
+     this.salesForm.controls['wednesdaySales'].setValue(this.normalDay)
+
+    else if(value==="B") 
+      this.salesForm.controls['wednesdaySales'].setValue(this.badDay)
+
+  }
+
+  selectedThursday(event){
+    let value = event.detail.value
+
+    if(value==="G")
+      this.salesForm.controls['thursdaySales'].setValue(this.goodDay)
+
+    else if(value==="N")
+     this.salesForm.controls['thursdaySales'].setValue(this.normalDay)
+
+    else if(value==="B") 
+      this.salesForm.controls['thursdaySales'].setValue(this.badDay)
+
+  }
+
+  selectedFriday(event){
+    let value = event.detail.value
+
+    if(value==="G")
+      this.salesForm.controls['fridaySales'].setValue(this.goodDay)
+
+    else if(value==="N")
+     this.salesForm.controls['fridaySales'].setValue(this.normalDay)
+
+    else if(value==="B") 
+      this.salesForm.controls['fridaySales'].setValue(this.badDay)
+
+  }
+
+  selectedSaturday(event){
+    let value = event.detail.value
+
+    if(value==="G")
+      this.salesForm.controls['saturdaySales'].setValue(this.goodDay)
+
+    else if(value==="N")
+     this.salesForm.controls['saturdaySales'].setValue(this.normalDay)
+
+    else if(value==="B") 
+      this.salesForm.controls['saturdaySales'].setValue(this.badDay)
+
+  }
+
+  selectedSunday(event){
+
+    let value = event.detail.value
+
+    if(value==="G")
+      this.salesForm.controls['sundaySales'].setValue(this.goodDay)
+
+    else if(value==="N")
+     this.salesForm.controls['sundaySales'].setValue(this.normalDay)
+
+    else if(value==="B") 
+      this.salesForm.controls['sundaySales'].setValue(this.badDay)
 
   }
 
