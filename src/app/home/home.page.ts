@@ -68,6 +68,7 @@ disabled:boolean = true
       this.report.loanDetailsAmnt(this.loanDetails.value)    
       this.option.add("home")
       this.disabled = false
+      this.router.navigate(['/menu/family-earning'])
    
 
     }
@@ -79,9 +80,9 @@ disabled:boolean = true
     
   }
 
-  redirect(){
-    this.router.navigate(['/menu/family-earning'])
-  }
+  // redirect(){
+  //   this.router.navigate(['/menu/family-earning'])
+  // }
 
   async presentToast(message) {
     const toast = await this.toastController.create({

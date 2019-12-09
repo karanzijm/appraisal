@@ -40,7 +40,7 @@ export class BusinessFinancialPage implements OnInit {
       equipment:new FormControl(),
       vehicles:new FormControl(),
       premises:new FormControl(),
-      loans:new FormControl(),
+      // loans:new FormControl(),
       debtsBelow3:new FormControl(),
       debtsOver3:new FormControl(),
       bank:new FormControl()
@@ -81,9 +81,9 @@ export class BusinessFinancialPage implements OnInit {
         if(this.premises===null)
         this.premises = 0
 
-        this.loans = this.businessForm.controls['loans'].value
-        if(this.loans===null)
-        this.loans = 0
+        // this.loans = this.businessForm.controls['loans'].value
+        // if(this.loans===null)
+        // this.loans = 0
 
         this.debtsBelow3 = this.businessForm.controls['debtsBelow3'].value
         if(this.debtsBelow3===null)
@@ -98,7 +98,7 @@ export class BusinessFinancialPage implements OnInit {
         this.bank=0
 
         this.total = this.cash + this.debtors + this.debtsBelow3 + this.debtsOver3 + this.equipment + this.furniture
-                      +this.loans + this.netEarning + this.premises + this.vehicles + this.bank
+                      + this.netEarning + this.premises + this.vehicles + this.bank
     },100);
  
   }
@@ -107,10 +107,11 @@ export class BusinessFinancialPage implements OnInit {
     
        this.report.businessFinancialAmnt(this.total,this.businessForm.value)
        this.option.add("business-financial")
+       this.router.navigate(['/menu/cash-flow'])
       // this.router.navigate(['/menu/landing'])
   }
-  redirect(){
-    this.router.navigate(['/menu/cash-flow'])
-  }
+  // redirect(){
+  //   this.router.navigate(['/menu/cash-flow'])
+  // }
 
 }

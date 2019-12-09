@@ -121,6 +121,8 @@ export class DailySalesMetricsPage implements OnInit {
     else if(value==="B") 
       this.salesForm.controls['mondaySales'].setValue(this.badDay)
 
+      this.sales()
+
 
     // setTimeout(() => {
     //   console.log(this.salesForm.controls['mondayRate'].value)
@@ -139,6 +141,7 @@ export class DailySalesMetricsPage implements OnInit {
     else if(value==="B") 
       this.salesForm.controls['tuesdaySales'].setValue(this.badDay)
 
+      this.sales()
 
   }
 
@@ -154,6 +157,8 @@ export class DailySalesMetricsPage implements OnInit {
     else if(value==="B") 
       this.salesForm.controls['wednesdaySales'].setValue(this.badDay)
 
+      this.sales()
+
   }
 
   selectedThursday(event){
@@ -167,6 +172,8 @@ export class DailySalesMetricsPage implements OnInit {
 
     else if(value==="B") 
       this.salesForm.controls['thursdaySales'].setValue(this.badDay)
+
+      this.sales()
 
   }
 
@@ -182,6 +189,8 @@ export class DailySalesMetricsPage implements OnInit {
     else if(value==="B") 
       this.salesForm.controls['fridaySales'].setValue(this.badDay)
 
+      this.sales()
+
   }
 
   selectedSaturday(event){
@@ -195,6 +204,8 @@ export class DailySalesMetricsPage implements OnInit {
 
     else if(value==="B") 
       this.salesForm.controls['saturdaySales'].setValue(this.badDay)
+
+      this.sales()
 
   }
 
@@ -210,6 +221,8 @@ export class DailySalesMetricsPage implements OnInit {
 
     else if(value==="B") 
       this.salesForm.controls['sundaySales'].setValue(this.badDay)
+
+      this.sales()
 
   }
 
@@ -255,11 +268,12 @@ export class DailySalesMetricsPage implements OnInit {
    // console.log(this.salesForm.value)
     this.report.dailySalesMetricsAmnt(this.salesForm.value,this.total);
     this.option.add("daily-sales-metrics")
+    this.router.navigate(['/menu/operating-expenses'])
        
   }
 
-  redirect(){
-    this.router.navigate(['/menu/operating-expenses'])
-  }
+  // redirect(){
+  //   this.router.navigate(['/menu/operating-expenses'])
+  // }
 
 }

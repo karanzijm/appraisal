@@ -124,8 +124,7 @@ furniture:number;
 
       if(this.report.receivables === undefined)
           this.report.receivables = 0;
-      if(this.report.loans === undefined)
-         this.report.receivables = 0
+      
 
       if(this.report.longTermDebt === undefined)
         this.report.longTermDebt = 0
@@ -165,7 +164,7 @@ furniture:number;
       /** CURRENT ASSETS */
     this.receivables = this.report.receivables
     this.inventory = this.report.totalPurchases
-    this.cash = this.report.totalCash + this.report.spouseCash
+    this.cash = this.report.totalCash
     this.bank = this.report.bankCash
     this.currentAssets = this.cash + this.bank + this.receivables + this.inventory
 
@@ -179,7 +178,7 @@ furniture:number;
     this.totalAssets = this.currentAssets + this.fixedAssets;
 
       /**short term liabilities */
-      this.loan = this.report.loans;
+      
       this.shortTermDebt = this.report.shortTermDebt;
       this.shortTermLiabilities = this.loan + this.shortTermDebt;
  
@@ -195,7 +194,7 @@ furniture:number;
 
       let sum1 = this.totalLiabilities + this.loanAmount
 
-      console.log(sum1)
+      console.log("Liabilities + loan "+sum1)
 
       if(this.shortTermLiabilities !==0){
         this.quickRatio = (this.currentAssets - this.inventory)/this.shortTermLiabilities

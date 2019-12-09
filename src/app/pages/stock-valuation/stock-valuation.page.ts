@@ -63,9 +63,9 @@ product:any[]=[];
           obj.margin = margin
           console.log(stock+" "+margin)
           this.product.push(obj)
-          this.report.stockValuationAmnt(this.product)
+          
         })
-        
+        this.report.stockValuationAmnt(this.product)
        // this.option.add("stock-valuation")
         
      

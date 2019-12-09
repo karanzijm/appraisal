@@ -87,6 +87,7 @@ export class ReportsService {
     console.log(this.familyExpenses)
   }
   stockValuationAmnt(value){
+    console.log("stock valuation")
     console.log(this.totalMonthlySales)
     console.log(this.totalPurchases)
    // if(this.totalMonthlySales ===undefined)
@@ -103,7 +104,7 @@ export class ReportsService {
     console.log("After calc "+this.totalMonthlySales)
     console.log("After calc "+this.totalPurchases)
 
-    this. totalCostOfSales()
+    this.totalCostOfSales()
 
   }
   dailySalesMetricsAmnt(form,total){
@@ -157,6 +158,7 @@ export class ReportsService {
     this.totalCash = form.cash
     this.bankCash = form.bank
     this.receivables = form.debtors
+    console.log("recivables "+this.receivables)
 
      /** fixed Assets */
      this.furniture = form.furniture;
@@ -165,7 +167,7 @@ export class ReportsService {
      this.equipment = form.equipment;
 
      /**short term liabilities */
-     this.loans = form.loans;
+     
      this.shortTermDebt = form.debtsBelow3
 
      /**Long term liabilities */

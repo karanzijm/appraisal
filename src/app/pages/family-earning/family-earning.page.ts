@@ -26,14 +26,15 @@ export class FamilyEarningPage implements OnInit {
     
     this.report.familyEarningsAmnt(this.familyEarnings)
     this.option.add("family-earning")
+    this.router.navigate(['/menu/family-expenses'])
     
     
   }
 
-  redirect(){
+  // redirect(){
     
-    this.router.navigate(['/menu/family-expenses'])
-  }
+  //   this.router.navigate(['/menu/family-expenses'])
+  // }
 
   spouseCheck(){
     
