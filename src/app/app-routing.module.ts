@@ -7,7 +7,11 @@ const routes: Routes = [
   {
     path: 'loan-appraisal',
     loadChildren: () => import('./pages/loan-appraisal/loan-appraisal.module').then( m => m.LoanAppraisalPageModule)
+  },  {
+    path: 'project-creation',
+    loadChildren: () => import('./pages/project-creation/project-creation.module').then( m => m.ProjectCreationPageModule)
   },
+
  
 
   

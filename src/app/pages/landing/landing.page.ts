@@ -3,6 +3,7 @@ import { ModalController } from '@ionic/angular';
 import { MenuOptionsPage } from '../menu-options/menu-options.page';
 import { OptionsService } from 'src/app/services/options.service';
 import { Router } from '@angular/router';
+import { ReportsService } from 'src/app/services/reports.service';
 
 @Component({
   selector: 'app-landing',
@@ -11,38 +12,45 @@ import { Router } from '@angular/router';
 })
 export class LandingPage implements OnInit {
 
+   projectName:string;
+   category:string;
+   projectDescription:string;
+
   constructor(
     public modalController: ModalController,
-    public option:OptionsService,
+    public report:ReportsService,
     public router:Router
     ) { }
 
   ngOnInit() {
-    this.option.ngOnInit()
+    this.projectName = this.report.projectName;
+    this.projectDescription = this.report.projectDescription;
+    this.category = this.report.projectCategory;
   }
 
   add(){
-   this.presentModal()
+    this.router.navigate(['/menu/home'])
+
   }
 
-  async presentModal(){
-    const modal = await this.modalController.create({
-      component: MenuOptionsPage,
-      componentProps:this.option.available
-    });
+  // async presentModal(){
+  //   const modal = await this.modalController.create({
+  //     component: MenuOptionsPage,
+  //     componentProps:this.option.available
+  //   });
 
-    modal.onDidDismiss().then((dataReturned) => {
-      if (dataReturned !== null) {     
-        console.log(dataReturned.data)
-        this.router.navigate(['/menu',dataReturned.data])
+  //   modal.onDidDismiss().then((dataReturned) => {
+  //     if (dataReturned !== null) {     
+  //       console.log(dataReturned.data)
+  //       this.router.navigate(['/menu',dataReturned.data])
      
-      }
+  //     }
      
 
-    });
+  //   });
 
-    return await modal.present();
-  }
+  //   return await modal.present();
+  // }
 
   edit(){
 
@@ -54,6 +62,10 @@ export class LandingPage implements OnInit {
 
   delete(){
 
+  }
+
+  addProject(){
+    this.router.navigate(['/project-creation'])
   }
 
 }

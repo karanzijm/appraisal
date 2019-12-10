@@ -5,6 +5,9 @@ import { Injectable } from '@angular/core';
 })
 export class ReportsService {
 
+  projectName:string
+  projectCategory:string;
+  projectDescription:string;
   loanDetails:any
   loanAmount:number=0;
   loanTerm:number;
@@ -52,6 +55,13 @@ export class ReportsService {
 
   constructor() { }
 
+  projectDetails(form){
+    console.log(form)
+    this.projectName = form.projectName;
+    this.projectCategory = form.category;
+    this.projectDescription = form.projectDescription
+
+  }
   loanDetailsAmnt(value){
      ///console.log(value)
      this.loanAmount = value.loanAmount
