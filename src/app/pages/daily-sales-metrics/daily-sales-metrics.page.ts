@@ -266,8 +266,7 @@ export class DailySalesMetricsPage implements OnInit {
 
   submit(){
    // console.log(this.salesForm.value)
-    this.report.dailySalesMetricsAmnt(this.salesForm.value,this.total);
-    this.option.add("daily-sales-metrics")
+    this.report.dailySalesMetricsAmnt(this.salesForm.value,this.total);    
     this.router.navigate(['/menu/operating-expenses'])
        
   }

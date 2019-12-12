@@ -46,7 +46,7 @@ export class ReportsService {
   operationalExpenses: number=0;
   spouseOperationalExpenses: number = 0;
   spouseOutflow: number = 0;
-  spouseSurplus: number;
+  spouseSurplus: number = 0;
   otherBusinessIncome: number = 0;
   loanFrequency: any;
   interestMethod: any;

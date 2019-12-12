@@ -105,8 +105,7 @@ export class BusinessFinancialPage implements OnInit {
 
   submit(){
     
-       this.report.businessFinancialAmnt(this.total,this.businessForm.value)
-       this.option.add("business-financial")
+       this.report.businessFinancialAmnt(this.total,this.businessForm.value)      
        this.router.navigate(['/menu/cash-flow'])
       // this.router.navigate(['/menu/landing'])
   }

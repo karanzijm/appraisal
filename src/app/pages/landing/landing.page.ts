@@ -20,12 +20,14 @@ export class LandingPage implements OnInit {
     public modalController: ModalController,
     public report:ReportsService,
     public router:Router
-    ) { }
+    ) {this.ngOnInit() }
 
   ngOnInit() {
     this.projectName = this.report.projectName;
-    this.projectDescription = this.report.projectDescription;
+     this.projectDescription = this.report.projectDescription;
     this.category = this.report.projectCategory;
+
+    console.log(this.projectName)
   }
 
   add(){

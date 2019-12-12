@@ -49,7 +49,7 @@ furniture:number;
   loanTerm:any= 0;
   loanInterest:any= 0;
   installment:number= 0;
-  as="Month(s)"
+
 
   quickRatio:number =0
   currentRatio:number = 0
@@ -104,8 +104,8 @@ furniture:number;
      if(this.report.operatingExpense === undefined)
          this.report.operatingExpense = 0
 
-     if(this.otherBusinessIncome === undefined)
-        this.otherBusinessIncome = 0
+     if(this.report.otherBusinessIncome === undefined)
+        this.report.otherBusinessIncome = 0
 
      if(this.report.spouseInflow === undefined)
         this.report.spouseInflow = 0
@@ -150,8 +150,9 @@ furniture:number;
         if(this.report.proposedInstallment === undefined)
             this.report.proposedInstallment = 0
 
-        if(this.report.spouseSurplus === undefined)
-        this.report.spouseSurplus = 0
+        if(this.report.spouseSurplus === undefined || isNaN(this.report.spouseSurplus))
+              this.report.spouseSurplus = 0
+       
 
       this.collateral = this.report.collateral
       this.proposedInstallment = this.report.proposedInstallment
@@ -278,7 +279,7 @@ furniture:number;
    this.businessOperationExpenses = this.report.operatingExpense
 
    if(this.costOfSales>0){
-    this.turnover = (this.sales/this.costOfSales) * 30
+    this.turnover = (this.inventory/this.costOfSales) * 30
    }else{
     this.turnover = 0
    }
@@ -303,7 +304,7 @@ furniture:number;
 
    this.operatingIncome = this.grossProfit - this.administrativeExpenses
 
-   this.netIncome = this.operatingIncome;
+   this.netIncome = this.operatingIncome + this.otherBusinessIncome;
     
    console.log("sales")
    console.log(this.sales)

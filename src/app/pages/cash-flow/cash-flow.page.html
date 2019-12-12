@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
       <ion-buttons slot="start">
         <ion-back-button defaultHref="/menu/landing"></ion-back-button>
         </ion-buttons>
@@ -8,7 +8,7 @@
 </ion-header>
 
 <ion-content scrollX="true">
-    <ion-segment value="loanDetails">
+    <ion-segment color="primary" value="loanDetails">
         <ion-segment-button value="loanDetails" color="primary" (ionSelect)="loanDetails()" checked>
           <ion-icon name="home"></ion-icon>
         </ion-segment-button>
@@ -27,10 +27,10 @@
         <p>Cash Flow</p>
         <ion-grid>
           <ion-row>
-            <ion-col id="main">
+            <ion-col id="headers">
               Inflow
             </ion-col>
-            <ion-col id="amount" class="align-self-end">{{ inflow  | number:'1.0'}}</ion-col>
+            <ion-col id="amountheader" class="align-self-end">{{ inflow  | number:'1.0'}}</ion-col>
           </ion-row>
 
           <ion-row>
@@ -58,10 +58,10 @@
                 </ion-row>
                 <br/>
                 <ion-row>
-                    <ion-col id="main">
+                    <ion-col id="headers">
                       Outflow
                     </ion-col>
-                    <ion-col id="amount" class="align-self-end">{{ outflow  | number:'1.0'}}</ion-col>
+                    <ion-col id="amountheader" class="align-self-end">{{ outflow  | number:'1.0'}}</ion-col>
 
                   </ion-row>  
 
@@ -105,8 +105,8 @@
              <ion-grid>
 
                <ion-row>
-                 <ion-col>Current Assets</ion-col>
-                 <ion-col class="totals" id="amount">{{currentAssets | number:'1.0'}}</ion-col>
+                 <ion-col id="headers">Current Assets</ion-col>
+                 <ion-col class="totals" id="amountheader">{{currentAssets | number:'1.0'}}</ion-col>
                </ion-row>
 
                <ion-row>
@@ -139,8 +139,8 @@
               <ion-grid>
 
                   <ion-row>
-                    <ion-col>Fixed Assets</ion-col>
-                    <ion-col class="totals" id="amount">{{fixedAssets | number:'1.0'}}</ion-col>
+                    <ion-col id="headers">Fixed Assets</ion-col>
+                    <ion-col class="totals" id="amountheader">{{fixedAssets | number:'1.0'}}</ion-col>
                   </ion-row>
    
                   <ion-row>
@@ -174,8 +174,8 @@
            <ion-card>
              <ion-grid>
                <ion-row>
-                 <ion-col>Total Assets</ion-col>
-                 <ion-col class="totals" id="amount">{{totalAssets | number:'1.0'}}</ion-col>
+                 <ion-col id="headers">Total Assets</ion-col>
+                 <ion-col class="totals" id="amountheader">{{totalAssets | number:'1.0'}}</ion-col>
                </ion-row>
              </ion-grid>
            </ion-card>
@@ -184,8 +184,8 @@
               <ion-grid>
 
                 <ion-row>
-                  <ion-col>Short term liabilities</ion-col>
-                  <ion-col class="totals" id="amount">{{shortTermLiabilities | number:'1.0'}}</ion-col>
+                  <ion-col id="headers">Short term liabilities</ion-col>
+                  <ion-col class="totals" id="amountheader">{{shortTermLiabilities | number:'1.0'}}</ion-col>
                 </ion-row>
 
                   <ion-row>
@@ -204,8 +204,8 @@
            <ion-card>
              <ion-grid>
                <ion-row>
-                 <ion-col>Long term liabilities</ion-col>
-                 <ion-col class="totals" id="amount">{{longTermLiabilities | number:'1.0'}}</ion-col>
+                 <ion-col id="headers">Long term liabilities</ion-col>
+                 <ion-col class="totals" id="amountheader">{{longTermLiabilities | number:'1.0'}}</ion-col>
                </ion-row>
              </ion-grid>
            </ion-card>
@@ -213,18 +213,18 @@
     <ion-card>
         <ion-grid>
             <ion-row>
-              <ion-col>Total liabilities</ion-col>
-              <ion-col class="totals" id="amount">{{totalLiabilities | number:'1.0'}}</ion-col>  
+              <ion-col id="headers">Total liabilities</ion-col>
+              <ion-col class="totals" id="amountheader">{{totalLiabilities | number:'1.0'}}</ion-col>  
             </ion-row>
 
             <ion-row>
-               <ion-col>Equity</ion-col>
-               <ion-col class="totals" id="amount">{{equity | number:'1.0'}}</ion-col>  
+               <ion-col id="headers">Equity</ion-col>
+               <ion-col class="totals" id="amountheader">{{equity | number:'1.0'}}</ion-col>  
              </ion-row>
 
              <ion-row>
-                 <ion-col>Liability and Equity</ion-col>
-                 <ion-col class="totals" id="amount">{{assets | number:'1.0'}}</ion-col>  
+                 <ion-col id="headers">Liability and Equity</ion-col>
+                 <ion-col class="totals" id="amountheader">{{assets | number:'1.0'}}</ion-col>  
                </ion-row>
           </ion-grid>
     </ion-card>          

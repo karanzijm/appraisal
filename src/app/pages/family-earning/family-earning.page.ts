@@ -24,8 +24,7 @@ export class FamilyEarningPage implements OnInit {
   }
   onSubmit(){
     
-    this.report.familyEarningsAmnt(this.familyEarnings)
-    this.option.add("family-earning")
+    this.report.familyEarningsAmnt(this.familyEarnings)    
     this.router.navigate(['/menu/family-expenses'])
     
     

@@ -66,8 +66,6 @@ disabled:boolean = true
     console.log("submit")
     if(this.loanDetails.valid){
       this.report.loanDetailsAmnt(this.loanDetails.value)    
-      this.option.add("home")
-      this.disabled = false
       this.router.navigate(['/menu/family-earning'])
    
 

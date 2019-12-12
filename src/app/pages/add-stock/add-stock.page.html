@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>Add Stock</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -30,7 +30,12 @@
      
         <ion-button color="danger" (click)="dismiss()">Cancel</ion-button>
         <ion-button color="success" (click)="save()">Save</ion-button>
-        <ion-button color="primary" type="submit">Add</ion-button>
+        <!-- <ion-button color="primary" type="submit">Add</ion-button> -->
+        <ion-fab vertical="center" horizontal="end" slot="fixed">
+          <ion-fab-button (click)="addStock()">
+            <ion-icon name="add"></ion-icon>
+          </ion-fab-button>
+        </ion-fab>
    
       </form>  
 </ion-content>

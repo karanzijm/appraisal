@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>landing</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -8,19 +8,21 @@
 <ion-card>
     <ion-card-header>
         <ion-card-subtitle>
-          <ion-grid>
+            {{projectName}}
+          <!-- <ion-grid>
           <ion-row>
             <ion-col size="6">{{projectName}}</ion-col>
-            <ion-col size="6">gfhsf</ion-col>
+            <ion-col size="6">{{projectName}}gfhsf</ion-col>
           </ion-row>
-        </ion-grid></ion-card-subtitle>
+        </ion-grid> -->
+      </ion-card-subtitle>
         
       </ion-card-header>
   <ion-grid>
     <ion-row>
-      <ion-col><ion-button size="small" color="tertiary" (click)="add()">ADD<ion-icon slot="end" name="add"></ion-icon></ion-button></ion-col>
-      <ion-col><ion-button size="small" color="tertiary" (click)="edit()">EDIT<ion-icon slot="end" name="create"></ion-icon></ion-button></ion-col>
-      <ion-col><ion-button size="small" color="tertiary" (click)="view()">VIEW<ion-icon slot="end" name="eye"></ion-icon></ion-button></ion-col>
+      <ion-col><ion-button size="small" color="primary" (click)="add()">ADD<ion-icon slot="end" name="add"></ion-icon></ion-button></ion-col>
+      <ion-col><ion-button size="small" color="primary" (click)="edit()">EDIT<ion-icon slot="end" name="create"></ion-icon></ion-button></ion-col>
+      <ion-col><ion-button size="small" color="primary" (click)="view()">VIEW<ion-icon slot="end" name="eye"></ion-icon></ion-button></ion-col>
       <ion-col><ion-button size="small" color="warning" (click)="delete()">DELETE<ion-icon slot="end" name="trash"></ion-icon></ion-button></ion-col>
 
     </ion-row>
