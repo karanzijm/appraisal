@@ -35,25 +35,6 @@ export class LandingPage implements OnInit {
 
   }
 
-  // async presentModal(){
-  //   const modal = await this.modalController.create({
-  //     component: MenuOptionsPage,
-  //     componentProps:this.option.available
-  //   });
-
-  //   modal.onDidDismiss().then((dataReturned) => {
-  //     if (dataReturned !== null) {     
-  //       console.log(dataReturned.data)
-  //       this.router.navigate(['/menu',dataReturned.data])
-     
-  //     }
-     
-
-  //   });
-
-  //   return await modal.present();
-  // }
-
   edit(){
 
   }
