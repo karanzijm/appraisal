@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core';
+import { DatabaseService, Proj } from './database.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ReportsService {
+
+appraisal={}
 
   projectName:string
   projectCategory:string;
@@ -53,13 +56,18 @@ export class ReportsService {
   
   
 
-  constructor() { }
+  constructor(private db:DatabaseService) { }
 
   projectDetails(form){
     console.log(form)
     this.projectName = form.projectName;
     this.projectCategory = form.category;
     this.projectDescription = form.projectDescription
+
+    this.db.addProject(form.projectName,form.category)
+    .then(_=>{
+      this.appraisal={}
+    });
 
   }
   loanDetailsAmnt(value){
@@ -74,7 +82,13 @@ export class ReportsService {
     this.proposedInstallment = value.installment;
     this.loanFrequency = value.frequency;
     this.interestMethod = value.interestMethod;
+
+    // this.db.addProject(value.loanAmount,value.period,value.interest)
+    // .then(_=>{
+    //   this.appraisal={}
+    // });
   }
+
   familyEarningsAmnt(value){
     console.log("familyEarningsAmnt "+JSON.stringify(value))
     this.familyEarnings = value;
